@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej8</title>
+</head>
+<body>
+<script>
+
+let nombre = "adolfo";
+let apellido = "suárez";
+let nomcom = nombre + " " + apellido;
+let pregunta1 = prompt("¿Cuál fue el primer presidente de la democracia española?").toLowerCase().trim();
+
+        while (pregunta1 !== nomcom) {
+
+            if (pregunta1 === nombre) {
+                pregunta1 = prompt("Te falta el apellido. ¿Cuál fue el primer presidente de la democracia española?").toLowerCase().trim();
+            } else if (pregunta1 === apellido) {
+                pregunta1 = prompt("Te falta el nombre. ¿Cuál fue el primer presidente de la democracia española?").toLowerCase().trim();
+            } else {
+                pregunta1 = prompt("Respuesta incorrecta.¿Cuál fue el primer presidente de la democracia española?").toLowerCase().trim();
+            }
+        }
+
+        document.write("¡Respuesta correcta! El primer presidente de la democracia española fue " + nomcom + ".");
+
+</script>
+    
+</body>
+</html>

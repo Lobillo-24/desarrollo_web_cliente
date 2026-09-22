@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej7</title>
+</head>
+<body>
+<script>
+
+let contras = "suárez";
+let contras_usuario = prompt("Introduce la contraseña").toLowerCase().trim();
+
+    while (contras_usuario !== contras) {
+        if (contras_usuario === "") {
+            contras_usuario = prompt("Introduce la contraseña");
+        }else {
+            contras_usuario = prompt("Contraseña incorrecta, vuelve a introducirla");
+        }
+    }
+
+</script>
+    
+</body>
+</html>
