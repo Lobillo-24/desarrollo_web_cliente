@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej12</title>
+</head>
+<body>
+
+<h1>Calcular Precio Final con Descuento</h1>
+
+<input type="number" name="precio" id="precio" placeholder="Precio original" step="any">
+<input type="number" name="descuento" id="descuento" placeholder="Descuento en % (ej: 20)" step="any">
+<button type="button" onclick="comprobar()">Calcular</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function precioFinal(precioOriginal, porcentajeDescuento) {
+    // Calculamos la rebaja y se la restamos al precio original
+    let rebaja = (precioOriginal * porcentajeDescuento) / 100;
+    let final = precioOriginal - rebaja;
+    return final;
+}
+
+function comprobar() {
+    let p = parseFloat(document.getElementById("precio").value);
+    let d = parseFloat(document.getElementById("descuento").value);
+
+    let resultadoFinal = precioFinal(p, d);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

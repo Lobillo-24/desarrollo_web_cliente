@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej14</title>
+</head>
+<body>
+
+<h1>Comprobar si el dividendo es divisible</h1>
+
+<input type="number" name="dividendo" id="dividendo" placeholder="Dividendo">
+<input type="number" name="divisor" id="divisor" placeholder="Divisor">
+<button type="button" onclick="comprobar()">Comprobar</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function divisible(dividendo, divisor) {
+    // Si el resto de dividir el dividendo entre el divisor es 0, es divisible
+    if (dividendo % divisor === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function comprobar() {
+    let div = parseInt(document.getElementById("dividendo").value);
+    let dis = parseInt(document.getElementById("divisor").value);
+
+    let resultadoFinal = divisible(div, dis);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+Ñ
+</body>
+</html>

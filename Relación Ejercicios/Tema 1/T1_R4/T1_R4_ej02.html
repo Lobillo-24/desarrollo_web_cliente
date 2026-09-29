@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej02</title>
+</head>
+<body>
+
+<h1>Sumar solo los números</h1>
+
+<input type="text" id="valores" placeholder="Ej: 1, cat, 3, 4">
+<button type="button" onclick="addOnlyNums()">Calcular</button>
+<input type="text" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function addOnlyNums() {
+    // Cogemos lo que escribe el usuario y lo separamos por comas
+    let texto = document.getElementById("valores").value;
+    let trozos = texto.split(",");
+    let suma = 0;
+
+    // Recorremos cada trozo con un bucle normal
+    for (let i = 0; i < trozos.length; i++) {
+        let elemento = trozos[i].trim(); // Quitamos espacios sobrantes
+        let numero = parseInt(elemento);
+
+        // Si es un número válido (ignora las letras como 'cat'), lo sumamos
+        if (!isNaN(numero)) {
+            suma = suma + numero;
+        }
+    }
+
+    // Mostramos el resultado
+    document.getElementById("resultado").value = suma;
+}
+
+</script>
+
+</body>
+</html>

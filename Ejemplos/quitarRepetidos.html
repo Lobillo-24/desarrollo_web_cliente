@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quitarrepertidos</title>
+</head>
+<body>
+    
+
+
+
+<script>
+
+    function quitarRepetidos(array) {
+    let resultado = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let elemento = array[i];
+        let existe = false;
+
+        for (let j = 0; j < resultado.length; j++) {
+            if (resultado[j] === elemento) {
+                existe = true;
+                break;
+            }
+        }
+
+        if (!existe) {
+            resultado[resultado.length] = elemento;
+        }
+    }
+
+    return resultado;
+}
+
+console.log(quitarRepetidos([1, 2, 1, 3, 2, 4])); 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej10</title>
+</head>
+<body>
+
+<h1>Calcular el área de un rectángulo</h1>
+
+<input type="number" name="lado1" id="lado1" placeholder="Lado 1">
+<input type="number" name="lado2" id="lado2" placeholder="Lado 2">
+<button type="button" onclick="comprobar()">Calcular Área</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function areaRectangulo(base, altura) {
+    // El área de un rectángulo es base por altura
+    let area = base * altura;
+    return area;
+}
+
+function comprobar() {
+    let b = parseInt(document.getElementById("lado1").value);
+    let a = parseInt(document.getElementById("lado2").value);
+
+    let resultadoFinal = areaRectangulo(b, a);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej11</title>
+</head>
+<body>
+
+<h1>Calcular Índice de Masa Corporal (IMC)</h1>
+
+<input type="number" name="peso" id="peso" placeholder="Peso en kg" step="any">
+<input type="number" name="altura" id="altura" placeholder="Altura en metros (ej: 1.75)" step="any">
+<button type="button" onclick="comprobar()">Calcular IMC</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function imc(peso, altura) {
+    // IMC = peso / (altura * altura)
+    let resultadoImc = peso / (altura * altura);
+    return resultadoImc;
+}
+
+function comprobar() {
+    let p = parseFloat(document.getElementById("peso").value);
+    let a = parseFloat(document.getElementById("altura").value);
+
+    let resultadoFinal = imc(p, a);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

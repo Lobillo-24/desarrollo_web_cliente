@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej03</title>
+</head>
+<body>
+
+<h1>Contar los argumentos</h1>
+
+<button type="button" onclick="probar()">Probar countTheArgs</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function countTheArgs(a, b, c, d) {
+    let array = [a, b, c, d];
+    let contador = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== undefined) {
+            contador = contador + 1;
+        }
+    }
+
+    return contador;
+}
+
+function probar() {
+    let resultadoFinal = countTheArgs('cat', 'dog', 'frog', 'bear');
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

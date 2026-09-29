@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej04</title>
+</head>
+<body>
+
+<h1>Combinar dos arrays</h1>
+
+<button type="button" onclick="probar()">Probar combineTwoArrays</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function combineTwoArrays(array1, array2) {
+    let resultadoArray = [];
+
+    // Metemos los elementos del primer array
+    for (let i = 0; i < array1.length; i++) {
+        resultadoArray.push(array1[i]);
+    }
+
+    // Metemos los elementos del segundo array
+    for (let j = 0; j < array2.length; j++) {
+        resultadoArray.push(array2[j]);
+    }
+
+    return resultadoArray;
+}
+
+function probar() {
+    let arr1 = [1, 2, 3];
+    let arr2 = [4, 5, 6];
+    let resultadoFinal = combineTwoArrays(arr1, arr2);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invertir array</title>
+</head>
+<body>
+
+<script>
+
+    /*function invertirArray(invArr) {
+        let arrayFinal = [];
+        
+        for (let i = invArr.length - 1; i >= 0; i--) {
+            arrayFinal.push(invArr[i]);
+        }
+        
+        return arrayFinal;
+    }
+
+    let miArray = [1, 2, 3];
+    let resultado = invertirArray(miArray);
+    console.log(miArray);
+    console.log(resultado);*/
+
+
+function invertirArray(invArr2) {
+
+    let vuelta = invArr2.length - 1;
+    debugger;
+    for (let i = 0; i <= vuelta; i++) {
+        invArr2.push(invArr2.shift());
+    }
+    return invArr2;
+
+}
+
+let miArray2 = [1, 2, 3];
+console.log(miArray2);
+let resultado2 = invertirArray(miArray2);
+
+console.log(miArray2);
+console.log(resultado2);
+
+
+</script>
+    
+</body>
+</html>

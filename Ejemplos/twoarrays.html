@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unir dos arrays en uno</title>
+</head>
+<body>
+
+
+
+
+
+<script>    
+
+let array1 = ["Elemento 1", "Elemento 2", "Elemento 3"];
+let array2 = ["Elemento A", "Elemento B", "Elemento C"];
+
+
+function twoarrays(array1, array2) {
+    let arrayfinal = [];
+    for (let i = 0; i < array1.length; i++) {
+        arrayfinal.push(array1[i]);
+    }
+    for (let i = 0; i < array2.length; i++) {
+        arrayfinal.push(array2[i]);
+    }
+    return arrayfinal;
+}
+
+for (let i = 0; i < twoarrays(array1, array2).length; i++) {
+    document.write(twoarrays(array1, array2)[i] + ", ");
+}
+
+
+
+</script>
+</body>
+</html>

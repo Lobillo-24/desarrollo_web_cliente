@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej13</title>
+</head>
+<body>
+
+<h1>Calcular Factorial de un número</h1>
+
+<input type="number" name="numero" id="numero" placeholder="Introduce un número">
+<button type="button" onclick="comprobar()">Calcular Factorial</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function factorial(n) {
+    let resultado = 1;
+    
+    // Multiplicamos acumulativamente desde 1 hasta n
+    for (let i = 1; i <= n; i++) {
+        resultado = resultado * i;
+    }
+    
+    return resultado;
+}
+
+function comprobar() {
+    let valor = parseInt(document.getElementById("numero").value);
+    let resultadoFinal = factorial(valor);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

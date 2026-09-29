@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej08</title>
+</head>
+<body>
+
+<h1>Comprobar si está en el rango</h1>
+
+<input type="number" name="valor" id="valor" placeholder="Valor a comprobar">
+<input type="number" name="rangoInf" id="rangoInf" placeholder="Rango inferior">
+<input type="number" name="rangoSup" id="rangoSup" placeholder="Rango superior">
+<button type="button" onclick="comprobar()">Comprobar</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function rango(valor, rangoInf, rangoSup) {
+    // Comprobamos si el valor es mayor o igual al inferior y menor o igual al superior
+    if (valor >= rangoInf && valor <= rangoSup) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function comprobar() {
+    let val = parseInt(document.getElementById("valor").value);
+    let inf = parseInt(document.getElementById("rangoInf").value);
+    let sup = parseInt(document.getElementById("rangoSup").value);
+
+    let resultadoFinal = rango(val, inf, sup);
+    
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>

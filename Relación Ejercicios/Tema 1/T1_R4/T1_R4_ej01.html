@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej01</title>
+</head>
+<body>
+
+<h1>Suma con cualquier número de argumentos</h1>
+
+<input type="number" name="sumando" id="sumando" value="sumando">
+<button type="submit" onclick="sum()">+</button>
+<input type="number" name="resultado" id="resultado" placeholder="resultado" readonly>
+<input type="text" name="cuenta" id="cuenta" placeholder="cuenta" readonly>
+
+
+
+<script>
+
+let array = [];
+
+function sum(){
+
+    let sumandos = parseInt(document.getElementById("sumando").value);
+    array.push(sumandos)
+    let sumaTotal = 0;
+    let texto = "";
+
+    for(let i = 0; i < array.length; i++){
+        let resultado = 0;
+        sumaTotal = sumaTotal + array[i];
+        document.getElementById("resultado").value = sumaTotal; 
+    }
+    for (let i = 0; i < array.length; i++) {
+        texto +=array[i] + "+ ";}
+    document.getElementById("cuenta").value = texto;
+
+}
+</script>
+</body>
+</html>

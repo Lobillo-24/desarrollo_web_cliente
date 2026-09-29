@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_R4_ej05</title>
+</head>
+<body>
+
+<h1>Sumar cada dos argumentos</h1>
+
+<button type="button" onclick="probar()">Probar sumEveryOther</button>
+<input type="text" name="resultado" id="resultado" placeholder="resultado" readonly>
+
+<script>
+
+function sumEveryOther(a, b, c, d, e) {
+    let suma = 0;
+    let array = [a, b, c, d, e];
+
+    // Avanzamos el bucle de 2 en 2 (i = i + 2) para saltarnos uno de por medio
+    for (let i = 0; i < array.length; i = i + 2) {
+        if (array[i] !== undefined) {
+            suma = suma + array[i];
+        }
+    }
+
+    return suma;
+}
+
+function probar() {
+    let resultadoFinal = sumEveryOther(5, 6, 3, 4, 1);
+    document.getElementById("resultado").value = resultadoFinal;
+}
+
+</script>
+
+</body>
+</html>
