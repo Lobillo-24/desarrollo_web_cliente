@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej08</title>
+</head>
+<body>
+
+<script>
+    // Función que contabiliza el número de palabras ignorando espacios múltiples, al inicio o al final
+    function contarPalabrasRobustas() {
+        let texto_original_frase = prompt("Introduce una frase para contar sus palabras:");
+        
+        if (!texto_original_frase) {
+            return "No se ha introducido ningún texto.";
+        }
+
+        let contador_palabras_total = 0;
+        let estamos_en_palabra = false;
+
+        // Recorremos carácter a carácter con un bucle for
+        for (let i = 0; i < texto_original_frase.length; i++) {
+            let caracter_actual_frase = texto_original_frase.charAt(i);
+
+            if (caracter_actual_frase === " ") {
+                // Si encontramos un espacio, cerramos el indicador de palabra
+                estamos_en_palabra = false;
+            } else {
+                // Si no es un espacio, evaluamos si veníamos de fuera para contar una nueva palabra
+                if (estamos_en_palabra === false) {
+                    contador_palabras_total++;
+                    estamos_en_palabra = true;
+                } else {
+                    // Si ya estábamos dentro de la misma palabra, no hacemos nada
+                }
+            }
+        }
+
+        let mensaje_resultado_final = "El texto introducido tiene un total de <strong>" + contador_palabras_total + " palabras</strong>.";
+        return mensaje_resultado_final;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write(contarPalabrasRobustas());
+</script>
+
+</body>
+</html>

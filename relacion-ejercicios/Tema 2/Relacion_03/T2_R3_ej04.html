@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej04</title>
+</head>
+<body>
+
+<script>
+    // Función que coloca consonantes al principio y vocales al final, eliminando espacios
+    function consonantesVocales() {
+        let texto_agrupar_letras = prompt("Introduce una cadena de texto:");
+        
+        if (!texto_agrupar_letras) {
+            return "No se ha introducido ningún texto.";
+        }
+
+        let acum_consonantes = "";
+        let acum_vocales = "";
+        let texto_limpio = texto_agrupar_letras.toLowerCase();
+
+        // Recorremos la cadena carácter por carácter
+        for (let i = 0; i < texto_limpio.length; i++) {
+            let letra_actual = texto_limpio.charAt(i);
+
+            // Solo procesamos si la letra NO es un espacio
+            if (letra_actual !== " ") {
+                if (letra_actual === 'a' || letra_actual === 'e' || letra_actual === 'i' || letra_actual === 'o' || letra_actual === 'u' ||
+                    letra_actual === 'á' || letra_actual === 'é' || letra_actual === 'í' || letra_actual === 'ó' || letra_actual === 'ú') {
+                    acum_vocales += letra_actual;
+                } else {
+                    acum_consonantes += letra_actual;
+                }
+            }
+        }
+
+        // Unimos las consonantes al principio y las vocales al final
+        let resultado_final = acum_consonantes + acum_vocales;
+        return resultado_final;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write("Texto transformado: <strong>\"" + consonantesVocales() + "\"</strong>");
+</script>
+
+</body>
+</html>

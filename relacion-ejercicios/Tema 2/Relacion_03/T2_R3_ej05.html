@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej05</title>
+</head>
+<body>
+
+<script>
+    // Función que elimina los caracteres repetidos de una cadena de texto, incluidos los blancos
+    function eliminaCaracteresRepetidos() {
+        let texto_original_repetidos = prompt("Introduce una cadena de texto:");
+        
+        if (!texto_original_repetidos) {
+            return "No se ha introducido ningún texto.";
+        }
+
+        let texto_sin_repetidos = "";
+
+        // Recorremos la cadena carácter por carácter
+        for (let i = 0; i < texto_original_repetidos.length; i++) {
+            let caracter_actual = texto_original_repetidos.charAt(i);
+
+            // Si el carácter (letra o espacio) no está ya en el resultado, lo añadimos
+            if (texto_sin_repetidos.indexOf(caracter_actual) === -1) {
+                texto_sin_repetidos += caracter_actual;
+            }
+        }
+
+        return texto_sin_repetidos;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write("Texto sin caracteres repetidos: <strong>\"" + eliminaCaracteresRepetidos() + "\"</strong>");
+</script>
+
+</body>
+</html>

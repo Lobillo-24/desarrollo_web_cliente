@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej09</title>
+</head>
+<body>
+
+<script>
+    // Función que valida una tarjeta de crédito según las reglas establecidas
+    function validateCreditCard() {
+        let numero_tarjeta = prompt("Introduce el número de tarjeta de crédito a validar:");
+
+        if (!numero_tarjeta) {
+            return false;
+        }
+
+        // Regla 1: El número debe tener exactamente 16 caracteres
+        if (numero_tarjeta.length !== 16) {
+            return false;
+        }
+
+        let suma_digitos_tarjeta = 0;
+        let existe_digito_diferente = false;
+        let primer_digito_referencia = numero_tarjeta.charAt(0);
+
+        // Recorremos el texto carácter a carácter
+        for (let i = 0; i < numero_tarjeta.length; i++) {
+            let caracter_actual_tarjeta = numero_tarjeta.charAt(i);
+
+            // Comprobamos si es un dígito válido entre '0' y '9'
+            if (caracter_actual_tarjeta < "0" || caracter_actual_tarjeta > "9") {
+                return false; 
+            } else {
+                let valor_numerico_actual = parseInt(caracter_actual_tarjeta);
+                suma_digitos_tarjeta += valor_numerico_actual;
+
+                // Regla 2: Debe haber al menos dos dígitos diferentes
+                if (caracter_actual_tarjeta !== primer_digito_referencia) {
+                    existe_digito_diferente = true;
+                } else {
+                    // Si es igual, continuamos
+                }
+            }
+        }
+
+        // Si no se encontró ningún dígito diferente, es inválida
+        if (existe_digito_diferente === false) {
+            return false;
+        }
+
+        // Regla 3: El dígito final debe ser par
+        let caracter_final_tarjeta = numero_tarjeta.charAt(15);
+        let numero_final_convertido = parseInt(caracter_final_tarjeta);
+
+        if (numero_final_convertido % 2 !== 0) {
+            return false; 
+        }
+
+        // Regla 4: La suma de todos los dígitos debe ser mayor que 16
+        if (suma_digitos_tarjeta <= 16) {
+            return false; 
+        }
+
+        // Si supera todas las comprobaciones, es válida
+        return true;
+    }
+
+    // Mostramos el resultado en pantalla
+    let resultado_validacion_tarjeta = validateCreditCard();
+    document.write("¿Es la tarjeta válida? -> <strong>" + resultado_validacion_tarjeta + "</strong>");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej07</title>
+</head>
+<body>
+
+<script>
+    // Función que comprueba si un texto es un palíndromo
+    function comprobarPalindromo() {
+        let texto_original_palindromo = prompt("Introduce una palabra o frase para comprobar si es un palíndromo:");
+        
+        if (!texto_original_palindromo) {
+            return "No se ha introducido ningún texto.";
+        }
+
+        let texto_minusculas = texto_original_palindromo.toLowerCase();
+        let texto_solo_letras = "";
+
+        // Limpiamos los espacios usando if/else en lugar de continue
+        for (let i = 0; i < texto_minusculas.length; i++) {
+            let caracter_evaluado = texto_minusculas.charAt(i);
+
+            if (caracter_evaluado === " ") {
+                // Si es un espacio, lo ignoramos y no lo añadimos
+            } else {
+                texto_solo_letras += caracter_evaluado;
+            }
+        }
+
+        // Construimos el texto invertido carácter a carácter
+        let texto_invertido = "";
+        for (let j = texto_solo_letras.length - 1; j >= 0; j--) {
+            texto_invertido += texto_solo_letras.charAt(j);
+        }
+
+        let mensaje_resultado_palindromo = "";
+
+        // Comparamos el texto limpio con el invertido
+        if (texto_solo_letras === texto_invertido) {
+            mensaje_resultado_palindromo = "¡SÍ! La frase o palabra <strong>es un palíndromo</strong>.";
+        } else {
+            mensaje_resultado_palindromo = "NO, la frase o palabra <strong>no es un palíndromo</strong>.";
+        }
+
+        return mensaje_resultado_palindromo;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write(comprobarPalindromo());
+</script>
+
+</body>
+</html>

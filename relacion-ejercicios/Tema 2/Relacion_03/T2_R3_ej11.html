@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej11</title>
+</head>
+<body>
+
+<script>
+    // Función avanzada que valida tarjetas de crédito utilizando el Algoritmo de Luhn
+    function validateCreditCardAdvanced() {
+        let numero_tarjeta_ingresado = prompt("Introduce el número de tarjeta para la validación avanzada (Algoritmo de Luhn):");
+
+        if (!numero_tarjeta_ingresado) {
+            return false;
+        }
+
+        let numero_tarjeta_limpio = "";
+
+        // Limpiamos los guiones introducidos por el usuario usando if/else
+        for (let k = 0; k < numero_tarjeta_ingresado.length; k++) {
+            let caracter_individual = numero_tarjeta_ingresado.charAt(k);
+
+            if (caracter_individual === "-") {
+                // Si es un guión, lo ignoramos
+            } else {
+                numero_tarjeta_limpio += caracter_individual;
+            }
+        }
+
+        // Validamos que la longitud limpia sea exactamente de 16 dígitos
+        if (numero_tarjeta_limpio.length !== 16) {
+            return false;
+        }
+
+        let suma_total_luhn = 0;
+        let alternar_duplicacion = false;
+
+        // Recorremos el número de derecha a izquierda para aplicar Luhn
+        for (let i = numero_tarjeta_limpio.length - 1; i >= 0; i--) {
+            let caracter_actual = numero_tarjeta_limpio.charAt(i);
+
+            // Comprobamos que sea un dígito numérico válido
+            if (caracter_actual < "0" || caracter_actual > "9") {
+                return false;
+            } else {
+                let valor_digito_numerico = parseInt(caracter_actual);
+
+                // Si toca duplicar (empezando desde el penúltimo hacia la izquierda)
+                if (alternar_duplicacion === true) {
+                    valor_digito_numerico *= 2;
+
+                    if (valor_digito_numerico > 9) {
+                        valor_digito_numerico -= 9;
+                    } else {
+                        // Si no supera el 9, se queda con el valor duplicado tal cual
+                    }
+                } else {
+                    // Si no toca duplicar, se queda con su valor original
+                }
+
+                suma_total_luhn += valor_digito_numerico;
+
+                // Alternamos el interruptor para el siguiente dígito
+                if (alternar_duplicacion === true) {
+                    alternar_duplicacion = false;
+                } else {
+                    alternar_duplicacion = true;
+                }
+            }
+        }
+
+        // Regla final de Luhn: La suma total debe ser múltiplo de 10
+        if (suma_total_luhn % 10 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Mostramos el resultado en pantalla
+    let resultado_validacion_avanzada = validateCreditCardAdvanced();
+    document.write("¿Es una tarjeta válida según Luhn? -> <strong>" + resultado_validacion_avanzada + "</strong>");
+</script>
+
+</body>
+</html>

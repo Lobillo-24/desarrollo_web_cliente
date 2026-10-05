@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej02</title>
+</head>
+<body>
+
+<script>
+    // Función que determina si la cadena está formada sólo por mayúsculas, minúsculas o mezcla
+    function informacionCadena() {
+        let texto_analizar_tipo = prompt("Introduce una cadena de texto para analizar:");
+        
+        if (!texto_analizar_tipo) {
+            return "No se ha introducido ningún texto.";
+        }
+
+        let mensajeResultado = "";
+
+        // Comparamos la cadena original con su versión en mayúsculas y minúsculas
+        if (texto_analizar_tipo === texto_analizar_tipo.toUpperCase()) {
+            mensajeResultado = "La cadena está formada <strong>sólo por mayúsculas</strong>.";
+        } else if (texto_analizar_tipo === texto_analizar_tipo.toLowerCase()) {
+            mensajeResultado = "La cadena está formada <strong>sólo por minúsculas</strong>.";
+        } else {
+            mensajeResultado = "La cadena contiene una <strong>mezcla de mayúsculas y minúsculas</strong>.";
+        }
+
+        return mensajeResultado;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write(informacionCadena());
+</script>
+
+</body>
+</html>

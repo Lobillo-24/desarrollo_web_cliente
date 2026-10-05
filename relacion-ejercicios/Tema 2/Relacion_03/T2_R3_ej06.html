@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej06</title>
+</head>
+<body>
+
+<script>
+    // Función que comprueba si la segunda cadena es subcadena de la primera
+    function verificarSubcadena() {
+        let texto_principal_busqueda = prompt("Introduce la cadena principal:");
+        let texto_subcadena_buscar = prompt("Introduce la subcadena que deseas buscar:");
+        
+        if (!texto_principal_busqueda || !texto_subcadena_buscar) {
+            return "Faltan datos por introducir.";
+        }
+
+        let posicion_encontrada = texto_principal_busqueda.indexOf(texto_subcadena_buscar);
+        let mensaje_resultado_busqueda = "";
+
+        // Comprobamos si indexOf nos devuelve -1 o una posición válida
+        if (posicion_encontrada === -1) {
+            mensaje_resultado_busqueda = "La subcadena <strong>NO</strong> se encuentra dentro de la cadena principal.";
+        } else {
+            mensaje_resultado_busqueda = "La subcadena <strong>SÍ</strong> aparece en la cadena principal, comenzando en la posición (índice): <strong>" + posicion_encontrada + "</strong>.";
+        }
+
+        return mensaje_resultado_busqueda;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write(verificarSubcadena());
+</script>
+
+</body>
+</html>

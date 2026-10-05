@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej03</title>
+</head>
+<body>
+
+<script>
+    // Función que localiza todas las apariciones de una subcadena dentro de otra
+    function localizarSubcadena() {
+        let texto_principal = prompt("Introduce la cadena principal:");
+        let texto_subcadena = prompt("Introduce la subcadena que deseas buscar:");
+        
+        if (!texto_principal || !texto_subcadena) {
+            return "Datos incompletos.";
+        }
+
+        let lista_posiciones = [];
+        let posicion_actual = texto_principal.indexOf(texto_subcadena);
+
+        // Buscamos todas las ocurrencias recorriendo la cadena
+        while (posicion_actual !== -1) {
+            lista_posiciones.push(posicion_actual);
+            // Avanzamos una posición para buscar la siguiente coincidencia
+            posicion_actual = texto_principal.indexOf(texto_subcadena, posicion_actual + 1);
+        }
+
+        let mensajeResultado = "";
+        if (lista_posiciones.length > 0) {
+            mensajeResultado = "La subcadena aparece en las posiciones (índices): <strong>" + lista_posiciones.join(", ") + "</strong> (Total de apariciones: " + lista_posiciones.length + ")";
+        } else {
+            mensajeResultado = "La subcadena <strong>no aparece</strong> dentro de la cadena principal.";
+        }
+
+        return mensajeResultado;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write(localizarSubcadena());
+</script>
+
+</body>
+</html>
+</html>

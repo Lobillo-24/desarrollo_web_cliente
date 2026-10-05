@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R4_ej01</title>
+</head>
+<body>
+
+<script>
+    // a) Invierte una cadena dada
+    function invierteCadena() {
+        let frase_cadena_invertida = prompt("Introduce una cadena para invertir:");
+        let textoInvertido = "";
+        for (let i = frase_cadena_invertida.length - 1; i >= 0; i--) {
+            textoInvertido += frase_cadena_invertida.charAt(i);
+        }
+        return textoInvertido;
+    }
+
+    // b) Devuelve invertidas las palabras contenidas en la cadena
+    function inviertePalabras() {
+        let frase_palabras_invertidas = prompt("Introduce una frase para invertir sus palabras:");
+        let listaPalabras = frase_palabras_invertidas.split(" ");
+        let palabrasInvertidasArray = [];
+        for (let i = listaPalabras.length - 1; i >= 0; i--) {
+            palabrasInvertidasArray.push(listaPalabras[i]);
+        }
+        return palabrasInvertidasArray.join(" ");
+    }
+
+    // c) Devuelve la longitud de la palabra más larga
+    function encuentraPalabraMasLarga() {
+        let frase_palabra_larga = prompt("Introduce una frase para hallar la palabra más larga:");
+        let vectorPalabras = frase_palabra_larga.split(" ");
+        let maxLongitud = 0;
+        for (let i = 0; i < vectorPalabras.length; i++) {
+            if (vectorPalabras[i].length > maxLongitud) {
+                maxLongitud = vectorPalabras[i].length;
+            }
+        }
+        return maxLongitud;
+    }
+
+    // d) Devuelve el número de palabras cuya longitud es mayor a i
+    function filtraPalabrasMasLargas() {
+        let frase_filtro_palabras = prompt("Introduce una frase:");
+        let numeroLimite = parseInt(prompt("Introduce el valor numérico (i) para filtrar:"));
+        let palabrasFiltro = frase_filtro_palabras.split(" ");
+        let contadorCoincidencias = 0;
+        for (let j = 0; j < palabrasFiltro.length; j++) {
+            if (palabrasFiltro[j].length > numeroLimite) {
+                contadorCoincidencias++;
+            }
+        }
+        return contadorCoincidencias;
+    }
+
+    // e) Formatea la cadena para que solo la primera letra esté en mayúscula y el resto en minúscula
+    function cadenaBienFormada() {
+        let frase_bien_formada = prompt("Introduce una cadena para darle formato:");
+        if (!frase_bien_formada) return "";
+        let textoMinusculas = frase_bien_formada.toLowerCase();
+        return textoMinusculas.charAt(0).toUpperCase() + textoMinusculas.slice(1);
+    }
+
+    // Mostramos los resultados llamando a las funciones
+    document.write("<h3>Resultados del Ejercicio 1 (Objeto String)</h3>");
+    document.write("a) Cadena invertida: <strong>\"" + invierteCadena() + "\"</strong><br>");
+    document.write("b) Palabras invertidas: <strong>\"" + inviertePalabras() + "\"</strong><br>");
+    document.write("c) Longitud de la palabra más larga: <strong>" + encuentraPalabraMasLarga() + "</strong><br>");
+    document.write("d) Palabras filtradas por longitud: <strong>" + filtraPalabrasMasLargas() + "</strong><br>");
+    document.write("e) Cadena bien formada: <strong>\"" + cadenaBienFormada() + "\"</strong>");
+</script>
+
+</body>
+</html>
