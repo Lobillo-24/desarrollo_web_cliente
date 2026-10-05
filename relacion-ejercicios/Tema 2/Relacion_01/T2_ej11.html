@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej11</title>
+</head>
+<body>
+
+<script>
+    // Pedimos una cadena de texto al usuario
+    let frase = prompt("Introduce una cadena de texto:");
+    let fraseInvertida = "";
+
+    // Recorremos la frase desde el último carácter hasta el primero usando charAt()
+    for (let i = frase.length - 1; i >= 0; i--) {
+        fraseInvertida += frase.charAt(i);
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write("Frase original: \"" + frase + "\"<br>");
+    document.write("Frase al revés: <strong>\"" + fraseInvertida + "\"</strong>");
+</script>
+
+</body>
+</html>

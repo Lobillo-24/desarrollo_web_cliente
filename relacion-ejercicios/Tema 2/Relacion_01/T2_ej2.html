@@ -9,41 +9,28 @@
 
 <script>
 
-/*const hoy = new Date();
-const navidad = new Date(2026, 11, 19); // 19-dic-2026
+/*const cumple = new Date(2026,3,11)
+const dias_semana = cumple.getDay();*/
 
-const dias = Math.round((navidad - hoy) / (86400000)); // Como nos lo da en milisegundos y lo queremos en días, dividimos el resultado entre los milisegundos que tiene un día(86400000).
-
-console.log(dias);
-document.write(dias);*/
-
+/*console.log(dias_semana)
+console.log(cumple)
+console.log(cumple.getFullYear())*/
 
 
+function calcular_domingos(){
+    for(let i = 2026; i <= 2100; i++ ){
 
+        //año = i;
+        const domingo = 0;
 
-const cumple = new Date(2026,3,11)
+        let cumple_año = new Date(i,3,11);
+        let dia_domingo = cumple_año.getDay();
+        if (dia_domingo === domingo){ console.log("El año " + i + " mi cumpleaños caerá en domingo");
+        }
 
-/*const ejemplo = new Date("December 17, 1995 03:24:00");//Un domingo
-const navidad = new Date(2026, 11, 19); // 19-dic-2026*/
-
-const dias_semana = ejemplo.getDay();
-
-console.log(dias_semana)
-console.log(cumple.getDay())
-
-
-
-
-for(let i = 0; i <= 2100; i++ ){
-
-    const domingo = 0;
-    const ultimo_año = 2100
-
-    if 45
-    45
-    6.45
-
+    }
 }
+calcular_domingos();
 
 </script>
 </body>

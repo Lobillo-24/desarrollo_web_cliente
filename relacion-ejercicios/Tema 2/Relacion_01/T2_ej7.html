@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej7</title>
+</head>
+<body>
+
+<script>
+    // Pedimos los tres números al usuario
+    let num1 = parseFloat(prompt("Introduce el primer número:"));
+    let num2 = parseFloat(prompt("Introduce el segundo número:"));
+    let num3 = parseFloat(prompt("Introduce el tercer número:"));
+
+    let mayor;
+
+    // Comparamos para hallar el mayor
+    if (num1 >= num2 && num1 >= num3) {
+        mayor = num1;
+    } else if (num2 >= num1 && num2 >= num3) {
+        mayor = num2;
+    } else {
+        mayor = num3;
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write("Los números introducidos son: " + num1 + ", " + num2 + " y " + num3 + "<br>");
+    document.write("El número mayor es: <strong>" + mayor + "</strong>");
+</script>
+
+</body>
+</html>

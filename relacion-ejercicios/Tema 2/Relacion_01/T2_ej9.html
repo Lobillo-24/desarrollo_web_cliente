@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej9</title>
+</head>
+<body>
+
+<script>
+    // Pedimos una frase al usuario
+    let frase = prompt("Introduce una frase:");
+    let contadorVocales = 0;
+    
+    // Pasamos la frase a minúsculas para simplificar la comprobación de vocales
+    let fraseMinuscula = frase.toLowerCase();
+
+    // Recorremos la frase carácter por carácter usando charAt()
+    for (let i = 0; i < fraseMinuscula.length; i++) {
+        let letra = fraseMinuscula.charAt(i);
+        
+        // Comprobamos si el carácter es una vocal (incluyendo acentos)
+        if (letra === 'a' || letra === 'e' || letra === 'i' || letra === 'o' || letra === 'u' ||
+            letra === 'á' || letra === 'é' || letra === 'í' || letra === 'ó' || letra === 'ú') {
+            contadorVocales++;
+        }
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write("Frase introducida: \"" + frase + "\"<br>");
+    document.write("La frase tiene un total de <strong>" + contadorVocales + "</strong> vocales.");
+</script>
+
+</body>
+</html>

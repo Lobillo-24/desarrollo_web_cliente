@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej8</title>
+</head>
+<body>
+
+<script>
+    // Pedimos una frase al usuario
+    let frase = prompt("Introduce una frase:");
+    let contador = 0;
+
+    // Recorremos la cadena carácter por carácter para buscar la letra 'a' (incluyendo mayúsculas y acentos por robustez)
+    for (let i = 0; i < frase.length; i++) {
+        let letra = frase.charAt(i);
+        if (letra === 'a' || letra === 'A' || letra === 'á' || letra === 'Á') {
+            contador++;
+        }
+    }
+
+    // Mostramos el resultado en pantalla
+    document.write("Frase introducida: \"" + frase + "\"<br>");
+    document.write("La letra 'a' aparece <strong>" + contador + "</strong> veces.");
+</script>
+
+</body>
+</html>

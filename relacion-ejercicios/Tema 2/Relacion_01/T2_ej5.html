@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej5</title>
+</head>
+<body>
+
+<script>
+    // Menú de opciones según el enunciado
+    let opcion = prompt(
+        "Introduce una opción:\n" +
+        "1. Potencia\n" +
+        "2. Raíz\n" +
+        "3. Redondeo\n" +
+        "4. Trigonometría"
+    );
+
+    switch (opcion) {
+        case "1":
+            let base = parseFloat(prompt("Introduce la base:"));
+            let exponente = parseFloat(prompt("Introduce el exponente:"));
+            let resultadoPotencia = Math.pow(base, exponente);
+            document.write("La potencia de " + base + " elevado a " + exponente + " es: " + resultadoPotencia);
+            break;
+
+        case "2":
+            let numRaiz = parseFloat(prompt("Introduce un número no negativo:"));
+            if (numRaiz >= 0) {
+                let resultadoRaiz = Math.sqrt(numRaiz);
+                document.write("La raíz de " + numRaiz + " es: " + resultadoRaiz);
+            } else {
+                document.write("El número introducido debe ser no negativo.");
+            }
+            break;
+
+        case "3":
+            let numDecimal = parseFloat(prompt("Introduce un número decimal:"));
+            let cercano = Math.round(numDecimal);
+            let alza = Math.ceil(numDecimal);
+            let baja = Math.floor(numDecimal);
+            
+            document.write("Número analizado: " + numDecimal + "<br>");
+            document.write("Redondeo al entero más próximo: " + cercano + "<br>");
+            document.write("Redondeo al alza: " + alza + "<br>");
+            document.write("Redondeo a la baja: " + baja);
+            break;
+
+        case "4":
+            let anguloGrados = parseFloat(prompt("Introduce un ángulo (entre 0º y 360º):"));
+            // Convertimos los grados a radianes para las funciones trigonométricas de Math
+            let radianes = anguloGrados * (Math.PI / 180);
+            
+            document.write("Ángulo: " + anguloGrados + "°<br>");
+            document.write("Seno: " + Math.sin(radianes) + "<br>");
+            document.write("Coseno: " + Math.cos(radianes) + "<br>");
+            document.write("Tangente: " + Math.tan(radianes));
+            break;
+
+        default:
+            document.write("Opción no válida.");
+            break;
+    }
+</script>
+
+</body>
+</html>

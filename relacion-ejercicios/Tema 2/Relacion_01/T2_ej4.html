@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej_04</title>
+</head>
+<body>
+
+<script>
+
+
+const hora_inicial = new Date();
+let milisegundos_iniciales = hora_inicial.getTime();
+let segundos = milisegundos_iniciales;
+
+nombre = prompt("Introduce tu nombre y tus dos apellidos: ");
+
+const hora_final = new Date();
+let milisegundos_finales = hora_final.getTime();
+let segundos_finales = (milisegundos_finales - segundos) / 1000;
+
+console.log("En introducir " + nombre + " has tardado " + segundos_finales + " segundos.");
+
+</script>
+</body>
+</html>

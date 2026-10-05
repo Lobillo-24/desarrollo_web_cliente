@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej6</title>
+</head>
+<body>
+
+<script>
+    // Pedimos el nombre y los apellidos
+    let nombre = prompt("Introduce tu nombre:");
+    let apellido1 = prompt("Introduce tu primer apellido:");
+    let apellido2 = prompt("Introduce tu segundo apellido:");
+
+    // Juntamos todo en una sola cadena para calcular el tamaño total
+    let nombreCompleto = nombre + " " + apellido1 + " " + apellido2;
+
+    // 1. El tamaño del nombre más los apellidos (incluyendo espacios)
+    console.log("1. Tamaño total: " + nombreCompleto.length);
+
+    // 2. La cadena en minúsculas y en mayúsculas
+    console.log("2. En minúsculas: " + nombreCompleto.toLowerCase());
+    console.log("2. En mayúsculas: " + nombreCompleto.toUpperCase());
+
+    // 3. Dividir el nombre y los apellidos y mostrarlos en 3 líneas
+    console.log("3. \n" +
+        "Nombre: " + nombre + "\n" +
+        "Apellido 1: " + apellido1 + "\n" +
+        "Apellido 2: " + apellido2
+    );
+</script>
+
+</body>
+</html>
