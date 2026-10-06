@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej16</title>
+</head>
+<body>
+
+<button onclick="CrearVentana()">Abrir ventana secundaria</button>
+<button onclick="CerrarVentana()">Cerrar ventana secundaria</button>
+<button onclick="EnviarMensaje()">Envía un mensaje a la ventana secundaria</button>
+
+<script>
+
+let vnueva = "";
+
+function CrearVentana() {
+
+    vnueva = window.open("ventanaSecundaria.html", "", "width=500,height=400");
+    vnueva.moveTo(1500, 0);
+
+}
+
+function CerrarVentana() {
+    vnueva.close();
+}
+
+function EnviarMensaje() {
+
+    vnueva.recibeMensaje("Mensaje desde la ventana principal");
+}
+</script>
+
+</body>
+</html>

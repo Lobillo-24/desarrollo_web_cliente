@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R5_ej12</title>
+</head>
+<body>
+
+<button type="submit" onclick="CrearVentana()">Crear Ventana</button>
+<button type="submit" onclick="CerrarVentana()">Cerrar Ventana</button>
+
+
+<script>
+
+let vnueva = "";
+let nombreventana = prompt("Introduce el nombre que quires que tenga la ventana: ");
+
+function CrearVentana(){
+
+    vnueva = window.open("", "","width=500,height=400");
+    vnueva.document.title = nombreventana;
+    vnueva.moveTo(1500,0);
+
+}
+
+function CerrarVentana(){vnueva.close();}
+
+
+
+</script>
+    
+</body>
+</html>

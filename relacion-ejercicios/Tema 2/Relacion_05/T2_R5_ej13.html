@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R5_ej13</title>
+</head>
+<body>
+
+<button onclick="CrearVentana()">Crear Ventana</button>
+<button onclick="CerrarVentana()">Cerrar Ventana</button>
+
+<script>
+let vnueva = "";
+
+function CrearVentana() {
+    vnueva = window.open("", "", "width=500,height=400");
+
+        vnueva.moveTo(1500, 0);
+        vnueva.document.body.innerHTML = '<button onclick="window.close()">Cerrar</button>';
+
+}
+
+function CerrarVentana() {
+        vnueva.close();
+}
+</script>
+
+</body>
+</html>
