@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R3(2)_ej07</title>
+</head>
+<body>
+
+<h1> Generador de tabla dos columnas, en la primera un número ascendente y en la segunda el valor de su seno </h1>
+
+    <script>
+
+        function generarTabla() {
+            let tabla = "<table border='1'>";
+            tabla += "<tr><th>Número</th><th>Seno</th></tr>";
+
+            for (let i = 0; i <= 10; i++) {
+                let seno = Math.sin(i);
+                tabla += "<tr><td>" + i + "</td><td>" + seno.toFixed(2) + "</td></tr>";
+            }
+
+            tabla += "</table>";
+            document.body.innerHTML += tabla;
+        }
+        generarTabla();
+
+    </script>
+    
+</body>
+</html>

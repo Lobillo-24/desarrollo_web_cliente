@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R3(2)_ej05</title>
+</head>
+<body>
+
+<h1> Calculadora de ecuaciones de segundo grado </h1>
+
+    <script>
+
+        function calcularEcuacion() {
+            let a = parseFloat(prompt("Introduce el valor de a:"));
+            let b = parseFloat(prompt("Introduce el valor de b:"));
+            let c = parseFloat(prompt("Introduce el valor de c:"));
+
+            let discriminante = Math.pow(b, 2) - 4 * a * c;
+
+            if (discriminante > 0) {
+                let x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                let x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+                alert("Las soluciones son: x1 = " + x1 + ", x2 = " + x2);
+            } else if (discriminante === 0) {
+                let x = -b / (2 * a);
+                alert("La solución es: x = " + x);
+            } else {
+                alert("No hay soluciones reales.");
+            }
+        }
+        calcularEcuacion();
+
+    </script>
+    
+</body>
+</html>

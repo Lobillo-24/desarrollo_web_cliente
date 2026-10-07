@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R3(2)_ej08</title>
+</head>
+<body>
+
+<h1> Generador de 1 imágen de 3 aleatorias </h1>
+
+    <script>
+
+        function generarimagen() {
+            let imagenes = [
+                "https://via.placeholder.com/150/0000FF/808080?text=Imagen+1",
+                "https://via.placeholder.com/150/FF0000/FFFFFF?text=Imagen+2",
+                "https://via.placeholder.com/150/00FF00/000000?text=Imagen+3"
+            ];
+
+            let indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+            let imagenSeleccionada = imagenes[indiceAleatorio];
+
+            let imgElement = document.createElement("img");
+            imgElement.src = imagenSeleccionada;
+            imgElement.alt = "Imagen aleatoria";
+
+            document.body.appendChild(imgElement);
+        }
+        generarimagen();
+
+    </script>
+    
+</body>
+</html>

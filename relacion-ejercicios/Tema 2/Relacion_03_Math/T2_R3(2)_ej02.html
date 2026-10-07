@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R3(2)_ej02</title>
+</head>
+<body>
+
+    <script>
+
+        let angulo = prompt("Introduce un ángulo para calcular su seno, coseno y tangente (en grados):");
+        let radianes = angulo * Math.PI / 180;
+        let seno = Math.sin(radianes);
+        let coseno = Math.cos(radianes);
+        let tangente = Math.tan(radianes);
+
+        document.write("Seno de " + angulo + " grados: " + seno + "<br>");
+        document.write("Coseno de " + angulo + " grados: " + coseno + "<br>");
+        document.write("Tangente de " + angulo + " grados: " + tangente + "<br>");
+
+    </script>
+    
+</body>
+</html>

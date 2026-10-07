@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R3(2)_ej01</title>
+</head>
+<body>
+
+    <script>
+
+        let aleatorio = Math.floor(Math.random() * 100) + 1;
+        let aleatorio2 = Math.floor(Math.random() * 101) + 100;
+        let num1 = prompt("Introduce un número que sea el mínimo");
+        let num2 = prompt("Introduce un número que sea el máximo");
+        let aleatorio3 = Math.floor(Math.random() * (parseInt(num2) - parseInt(num1)) + parseInt(num1));
+
+        document.write("Número aleatorio entre 1 y 100: " + aleatorio + "<br>");
+        document.write("Número aleatorio entre 100 y 200: " + aleatorio2 + "<br>");
+        document.write("Número aleatorio entre " + num1 + " y " + num2 + ": " + aleatorio3 + "<br>");
+
+    </script>
+    
+</body>
+</html>

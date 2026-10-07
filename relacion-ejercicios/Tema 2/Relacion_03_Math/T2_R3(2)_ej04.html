@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_R3(2)_ej04</title>
+</head>
+<body>
+
+    <script>
+
+        for (let continuar = true; continuar; continuar = confirm("¿Deseas calcular otra hipotenusa?")) {
+            
+            let cateto1 = prompt("Introduce el valor del primer cateto:");
+            let cateto2 = prompt("Introduce el valor del segundo cateto:");
+
+            let hipotenusa = Math.hypot(cateto1, cateto2);
+
+            alert("La hipotenusa es: " + hipotenusa);
+        }
+    </script>
+    
+</body>
+</html>
