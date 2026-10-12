@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <h2>Información del navegador (Navigator)</h2>
+    <table border="1" id="tabla">
+        <tr>
+            <th>Propiedad</th>
+            <th>Valor</th>
+        </tr>
+    </table>
+
+    <script>
+        const tabla = document.getElementById("tabla");
+
+        // Añadimos algunas propiedades típicas de navigator
+        const propiedades = [
+            ["appName", navigator.appName],
+            ["appVersion", navigator.appVersion],
+            ["platform", navigator.platform],
+            ["userAgent", navigator.userAgent],
+            ["language", navigator.language]
+        ];
+
+        for (let i = 0; i < propiedades.length; i++) {
+            let fila = document.createElement("tr");
+            fila.innerHTML = "<td>" + propiedades[i][0] + "</td><td>" + propiedades[i][1] + "</td>";
+            tabla.appendChild(fila);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h2>Información de la pantalla (Screen)</h2>
+    <table border="1" id="tabla">
+        <tr>
+            <th>Propiedad</th>
+            <th>Valor</th>
+        </tr>
+    </table>
+
+    <script>
+        const tabla = document.getElementById("tabla");
+
+        const propiedades = [
+            ["width", screen.width],
+            ["height", screen.height],
+            ["availWidth", screen.availWidth],
+            ["availHeight", screen.availHeight],
+            ["colorDepth", screen.colorDepth],
+            ["pixelDepth", screen.pixelDepth]
+        ];
+
+        for (let i = 0; i < propiedades.length; i++) {
+            let fila = document.createElement("tr");
+            fila.innerHTML = "<td>" + propiedades[i][0] + "</td><td>" + propiedades[i][1] + "</td>";
+            tabla.appendChild(fila);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4 - Location y History</title>
+</head>
+<body>
+    <h1>Ejercicios de Location y History</h1>
+
+    <h2>a) Ir a un marcador</h2>
+    <a href="#marcador">Ir al marcador</a>
+
+    <h2>b) Nombre del host</h2>
+    <a href="#" onclick="mostrarHost()">Mostrar host</a>
+    <p id="host"></p>
+
+    <h2>c) URL completa</h2>
+    <a href="#" onclick="mostrarURL()">Mostrar URL</a>
+    <p id="url"></p>
+
+    <h2>d) Ir a una dirección</h2>
+    <a href="#" onclick="irDireccion()">Introducir dirección</a>
+
+    <h2>e) Protocolo utilizado</h2>
+    <a href="#" onclick="mostrarProtocolo()">Mostrar protocolo</a>
+    <p id="protocolo"></p>
+
+    <h2>f) Recargar página</h2>
+    <a href="#" onclick="location.reload()">Recargar página</a>
+
+    <p style="height:300px"></p>
+    <h2 id="marcador">Este es el marcador</h2>
+    <a href="#" onclick="mostrarNombreMarcador()">Mostrar el nombre del marcador</a>
+    <p id="nombreMarcador"></p>
+
+    <p><a href="index.html">Volver al menú</a></p>
+
+    <script>
+        function mostrarHost() {
+            document.getElementById("host").innerHTML = location.host;
+        }
+
+        function mostrarURL() {
+            document.getElementById("url").innerHTML = location.href;
+        }
+
+        function irDireccion() {
+            var direccion = prompt("Introduce una dirección web", "https://www.google.com");
+            if (direccion != null && direccion != "") {
+                if (direccion.indexOf("://") == -1) {
+                    direccion = "https://" + direccion;
+                }
+                location.href = direccion;
+            }
+        }
+
+        function mostrarProtocolo() {
+            document.getElementById("protocolo").innerHTML = location.protocol;
+        }
+
+        function mostrarNombreMarcador() {
+            document.getElementById("nombreMarcador").innerHTML = document.getElementById("marcador").id;
+        }
+    </script>
+</body>
+</html>

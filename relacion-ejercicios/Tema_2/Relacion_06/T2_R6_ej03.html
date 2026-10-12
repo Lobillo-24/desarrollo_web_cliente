@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - BOM</title>
+</head>
+<body>
+
+    <h2>Pruebas con el objeto Window</h2>
+    
+    <ul>
+        <li><a href="#" onclick="ejecutarA()">a) Ventana de confirmación</a></li>
+        <li><a href="#" onclick="ejecutarB()">b) Abrir y comprobar si está cerrada</a></li>
+        <li><a href="#" onclick="ejecutarC()">c) Abrir y pedir nuevo nombre</a></li>
+        <li><a href="#" onclick="ejecutarD1()">d1) Cerrar ventana actual</a> | <a href="#" onclick="ejecutarD2()">d2) Cerrar ventana nueva</a></li>
+        <li><a href="#" onclick="ejecutarF()">f) Abrir ventana 300x100 redimensionable</a></li>
+        <li><a href="#" onclick="ejecutarG()">g) Abrir ventana y escribir en el padre</a></li>
+        <li><a href="#" onclick="ejecutarH()">h) Mover ventana 50px abajo y derecha</a></li>
+        <li><a href="#" onclick="ejecutarI()">i) Situar ventana en posición (100, 100)</a></li>
+        <li><a href="#" onclick="ejecutarJ()">j) Mover scroll 10px hacia abajo</a></li>
+        <li><a href="#" onclick="ejecutarK()">k) Desplazar scroll a Y: 500</a></li>
+    </ul>
+
+    <!-- Espacio para probar el scroll -->
+    <div style="height: 1200px; margin-top: 50px;">
+        <p>Baja con el scroll para probar los apartados j y k...</p>
+    </div>
+
+    <script>
+        let ventanaNueva = null;
+
+        function ejecutarA() {
+            let res = confirm("¿Deseas continuar?");
+            alert(res ? "Has pulsado Aceptar" : "Has pulsado Cancelar");
+        }
+
+        function ejecutarB() {
+            ventanaNueva = window.open("", "_blank", "width=300,height=300");
+            setTimeout(function() {
+                if (ventanaNueva.closed) {
+                    alert("La ventana está cerrada.");
+                } else {
+                    alert("La ventana sigue abierta.");
+                }
+            }, 2000);
+        }
+
+        function ejecutarC() {
+            ventanaNueva = window.open("", "_blank", "width=300,height=300");
+            let nuevoNombre = prompt("Introduce un nuevo nombre para la ventana:");
+            if (nuevoNombre) {
+                ventanaNueva.document.title = nuevoNombre;
+                alert("Título cambiado a: " + nuevoNombre);
+            }
+        }
+
+        function ejecutarD1() {
+            window.close();
+        }
+
+        function ejecutarD2() {
+            if (ventanaNueva && !ventanaNueva.closed) {
+                ventanaNueva.close();
+            } else {
+                alert("No hay ninguna ventana nueva abierta.");
+            }
+        }
+
+        function ejecutarF() {
+            ventanaNueva = window.open("", "_blank", "width=300,height=100,resizable=yes");
+        }
+
+        function ejecutarG() {
+            ventanaNueva = window.open("", "_blank", "width=300,height=100");
+            ventanaNueva.document.write("<p>Hola desde la ventana hija</p>");
+            
+            let p = document.createElement("p");
+            p.textContent = "Texto añadido al padre desde el script.";
+            document.body.appendChild(p);
+        }
+
+        function ejecutarH() {
+            if (ventanaNueva && !ventanaNueva.closed) {
+                ventanaNueva.moveBy(50, 50);
+                ventanaNueva.focus();
+            } else {
+                alert("Primero debes abrir una ventana nueva.");
+            }
+        }
+
+        function ejecutarI() {
+            if (ventanaNueva && !ventanaNueva.closed) {
+                ventanaNueva.moveTo(100, 100);
+                ventanaNueva.focus();
+            } else {
+                alert("Primero debes abrir una ventana nueva.");
+            }
+        }
+
+        function ejecutarJ() {
+            window.scrollBy(0, 10);
+        }
+
+        function ejecutarK() {
+            window.scrollTo(0, 500);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5 - Anclas, imágenes y enlaces</title>
+</head>
+<body>
+    <h1>Ejercicios de anclas, imágenes y enlaces</h1>
+
+    <p><a href="#ancla1">Ir al primer ancla</a></p>
+    <p><a href="#ancla2">Ir al segundo ancla</a></p>
+    <p><a href="https://www.wikipedia.org">Enlace a Wikipedia</a></p>
+    <p><a href="https://www.google.com">Enlace a Google</a></p>
+
+    <h2>Imágenes de ejemplo</h2>
+    <img id="imagen1" src="https://placehold.co/150x100" alt="Imagen de ejemplo 1">
+    <img id="imagen2" src="https://placehold.co/120x80" alt="Imagen de ejemplo 2">
+
+    <a name="ancla1">Primera ancla</a>
+    <p>Este es el texto de la primera ancla.</p>
+    <a name="ancla2">Segunda ancla</a>
+    <p>Este es el texto de la segunda ancla.</p>
+
+    <h2>Consultas del documento</h2>
+    <p><a href="#" onclick="numeroAnclas()">a) Mostrar número de anclas</a></p>
+    <p id="resultadoAnclas"></p>
+
+    <p><a href="#" onclick="textoPrimeraAncla()">b) Mostrar el texto de la primera ancla</a></p>
+    <p id="resultadoTexto"></p>
+
+    <p><a href="#" onclick="numeroImagenes()">c) Mostrar número de imágenes</a></p>
+    <p id="resultadoImagenes"></p>
+
+    <p><a href="#" onclick="idPrimeraImagen()">d) Mostrar el id de la primera imagen</a></p>
+    <p id="resultadoId"></p>
+
+    <p><a href="#" onclick="numeroEnlaces()">e) Mostrar número de enlaces</a></p>
+    <p id="resultadoEnlaces"></p>
+
+    <p><a href="#" onclick="cambiarTitulo()">f) Cambiar título del documento</a></p>
+    <p id="resultadoTitulo"></p>
+
+    <p><a href="index.html">Volver al menú</a></p>
+
+    <script>
+        function numeroAnclas() {
+            document.getElementById("resultadoAnclas").innerHTML = document.anchors.length;
+        }
+
+        function textoPrimeraAncla() {
+            if (document.anchors.length > 0) {
+                document.getElementById("resultadoTexto").innerHTML = document.anchors[0].innerHTML;
+            } else {
+                document.getElementById("resultadoTexto").innerHTML = "No hay anclas con el atributo name.";
+            }
+        }
+
+        function numeroImagenes() {
+            document.getElementById("resultadoImagenes").innerHTML = document.images.length;
+        }
+
+        function idPrimeraImagen() {
+            if (document.images.length > 0) {
+                document.getElementById("resultadoId").innerHTML = document.images[0].id;
+            }
+        }
+
+        function numeroEnlaces() {
+            document.getElementById("resultadoEnlaces").innerHTML = document.links.length;
+        }
+
+        function cambiarTitulo() {
+            document.title = "Nuevo título del documento";
+            document.getElementById("resultadoTitulo").innerHTML = document.title;
+        }
+    </script>
+</body>
+</html>

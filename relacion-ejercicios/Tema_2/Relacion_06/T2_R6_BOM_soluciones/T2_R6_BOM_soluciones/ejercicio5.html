@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5 - Document</title>
+</head>
+<body>
+    <h1>Ejercicios del objeto Document</h1>
+
+    <h2>a) Fecha de última actualización</h2>
+    <a href="#" onclick="mostrarActualizacion(); return false;">Mostrar fecha</a>
+    <p id="actualizacion"></p>
+
+    <h2>b) Página desde la que se ha llegado</h2>
+    <a href="#" onclick="mostrarOrigen(); return false;">Mostrar origen</a>
+    <p id="origen"></p>
+
+    <h2>c) Título del documento</h2>
+    <a href="#" onclick="mostrarTitulo(); return false;">Mostrar título</a>
+    <p id="titulo"></p>
+
+    <h2>d) URL completa</h2>
+    <a href="#" onclick="mostrarURL(); return false;">Mostrar URL</a>
+    <p id="url"></p>
+
+    <h2>e) Escribir antes de terminar la carga</h2>
+    <p>Este enlace abre una ventana nueva y escribe contenido en ella.</p>
+    <a href="#" onclick="escribirAntes(); return false;">Ejemplo antes de terminar la carga</a>
+
+    <p>Este enlace reemplaza el contenido de la página actual.</p>
+    <a href="#" onclick="escribirDespues(); return false;">Ejemplo después de terminar la carga</a>
+
+    <p><a href="index.html">Volver al menú</a></p>
+
+    <script>
+        function mostrarActualizacion() {
+            document.getElementById("actualizacion").innerHTML = document.lastModified;
+        }
+
+        function mostrarOrigen() {
+            if (document.referrer == "") {
+                document.getElementById("origen").innerHTML = "No hay una página de origen disponible.";
+            } else {
+                document.getElementById("origen").innerHTML = document.referrer;
+            }
+        }
+
+        function mostrarTitulo() {
+            document.getElementById("titulo").innerHTML = document.title;
+        }
+
+        function mostrarURL() {
+            document.getElementById("url").innerHTML = document.URL;
+        }
+
+        function escribirAntes() {
+            var ventana = window.open("", "ventanaNueva", "width=500,height=300");
+
+            if (ventana != null) {
+                ventana.document.open();
+                ventana.document.write("<h1>Escritura antes de terminar la carga</h1>");
+                ventana.document.write("<p>Este contenido se ha escrito en una ventana nueva.</p>");
+                ventana.document.close();
+            } else {
+                alert("Permite las ventanas emergentes en el navegador.");
+            }
+        }
+
+        function escribirDespues() {
+            document.open();
+            document.write("<h1>Escritura después de terminar la carga</h1>");
+            document.write("<p>El contenido anterior se ha reemplazado por este nuevo contenido.</p>");
+            document.write("<p>Pulsa F5 para recuperar los ejercicios.</p>");
+            document.close();
+        }
+    </script>
+</body>
+</html>
