@@ -18,6 +18,11 @@
 
             let discriminante = Math.pow(b, 2) - 4 * a * c;
 
+            if (a === 0) {
+                alert("No es una ecuación de segundo grado (a no puede ser 0).");
+                return;
+            }
+
             if (discriminante > 0) {
                 let x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
                 let x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
