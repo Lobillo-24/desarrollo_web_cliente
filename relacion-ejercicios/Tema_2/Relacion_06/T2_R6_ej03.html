@@ -2,109 +2,171 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejercicio 3 - BOM</title>
+    <title>Ejercicio 3 - Window</title>
 </head>
 <body>
+    <h1>Ejercicios del objeto Window</h1>
 
-    <h2>Pruebas con el objeto Window</h2>
-    
-    <ul>
-        <li><a href="#" onclick="ejecutarA()">a) Ventana de confirmación</a></li>
-        <li><a href="#" onclick="ejecutarB()">b) Abrir y comprobar si está cerrada</a></li>
-        <li><a href="#" onclick="ejecutarC()">c) Abrir y pedir nuevo nombre</a></li>
-        <li><a href="#" onclick="ejecutarD1()">d1) Cerrar ventana actual</a> | <a href="#" onclick="ejecutarD2()">d2) Cerrar ventana nueva</a></li>
-        <li><a href="#" onclick="ejecutarF()">f) Abrir ventana 300x100 redimensionable</a></li>
-        <li><a href="#" onclick="ejecutarG()">g) Abrir ventana y escribir en el padre</a></li>
-        <li><a href="#" onclick="ejecutarH()">h) Mover ventana 50px abajo y derecha</a></li>
-        <li><a href="#" onclick="ejecutarI()">i) Situar ventana en posición (100, 100)</a></li>
-        <li><a href="#" onclick="ejecutarJ()">j) Mover scroll 10px hacia abajo</a></li>
-        <li><a href="#" onclick="ejecutarK()">k) Desplazar scroll a Y: 500</a></li>
-    </ul>
+    <h2>a) Ventana de confirmación</h2>
+    <a href="#" onclick="confirmar(); return false;">Abrir confirmación</a>
+    <p id="resultadoConfirmacion"></p>
 
-    <!-- Espacio para probar el scroll -->
-    <div style="height: 1200px; margin-top: 50px;">
-        <p>Baja con el scroll para probar los apartados j y k...</p>
-    </div>
+    <h2>b) Comprobar si una ventana está cerrada</h2>
+    <a href="#" onclick="abrirVentana(); return false;">Abrir ventana</a><br>
+    <a href="#" onclick="comprobarVentana(); return false;">Comprobar si está cerrada</a>
+
+    <h2>c) Cambiar el nombre de una ventana</h2>
+    <a href="#" onclick="abrirVentanaNombre(); return false;">Abrir ventana y cambiar su nombre</a>
+
+    <h2>d) Cerrar ventanas</h2>
+    <a href="#" onclick="cerrarEstaVentana(); return false;">Cerrar esta ventana</a><br>
+    <a href="#" onclick="cerrarVentanaNueva(); return false;">Cerrar la ventana abierta con open()</a>
+
+    <h2>f) Ventana de 300x100</h2>
+    <a href="#" onclick="abrirVentanaPequena(); return false;">Abrir ventana pequeña</a>
+
+    <h2>g) Escribir en la página padre</h2>
+    <a href="#" onclick="abrirVentanaConTexto(); return false;">Abrir ventana y escribir en la página padre</a>
+    <p id="textoPadre"></p>
+
+    <h2>h) Mover ventana 50 píxeles</h2>
+    <a href="#" onclick="moverVentana(); return false;">Abrir ventana y moverla 50 píxeles</a>
+
+    <h2>i) Situar ventana en una posición concreta</h2>
+    <a href="#" onclick="situarVentana(); return false;">Abrir ventana en una posición concreta</a>
+
+    <h2>j) Desplazar 10 píxeles hacia abajo</h2>
+    <a href="#" onclick="desplazarDiez(); return false;">Desplazar la página 10 píxeles</a>
+
+    <h2>k) Desplazar a una posición determinada</h2>
+    <a href="#" onclick="desplazarPosicion(); return false;">Desplazar la página a la posición 300</a>
+
+    <p style="height:600px">Este espacio permite probar el desplazamiento de la página.</p>
+
+    <p><a href="index.html">Volver al menú</a></p>
 
     <script>
-        let ventanaNueva = null;
+        var ventanaNueva;
 
-        function ejecutarA() {
-            let res = confirm("¿Deseas continuar?");
-            alert(res ? "Has pulsado Aceptar" : "Has pulsado Cancelar");
-        }
+        function confirmar() {
+            var opcion = confirm("¿Quieres aceptar?");
 
-        function ejecutarB() {
-            ventanaNueva = window.open("", "_blank", "width=300,height=300");
-            setTimeout(function() {
-                if (ventanaNueva.closed) {
-                    alert("La ventana está cerrada.");
-                } else {
-                    alert("La ventana sigue abierta.");
-                }
-            }, 2000);
-        }
-
-        function ejecutarC() {
-            ventanaNueva = window.open("", "_blank", "width=300,height=300");
-            let nuevoNombre = prompt("Introduce un nuevo nombre para la ventana:");
-            if (nuevoNombre) {
-                ventanaNueva.document.title = nuevoNombre;
-                alert("Título cambiado a: " + nuevoNombre);
+            if (opcion == true) {
+                document.getElementById("resultadoConfirmacion").innerHTML = "Has pulsado Aceptar";
+            } else {
+                document.getElementById("resultadoConfirmacion").innerHTML = "Has pulsado Cancelar";
             }
         }
 
-        function ejecutarD1() {
-            window.close();
+        function abrirVentana() {
+            ventanaNueva = window.open("", "ventanaNueva", "width=400,height=200,resizable=yes");
+
+            if (ventanaNueva) {
+                ventanaNueva.document.write("<h1>Ventana nueva</h1><p>Cierra esta ventana y vuelve a comprobar si está cerrada.</p>");
+                ventanaNueva.document.close();
+            } else {
+                alert("El navegador ha bloqueado la ventana emergente.");
+            }
         }
 
-        function ejecutarD2() {
-            if (ventanaNueva && !ventanaNueva.closed) {
+        function comprobarVentana() {
+            if (ventanaNueva == null) {
+                alert("Todavía no has abierto ninguna ventana.");
+            } else if (ventanaNueva.closed == true) {
+                alert("La ventana está cerrada.");
+            } else {
+                alert("La ventana sigue abierta.");
+            }
+        }
+
+
+        function abrirVentanaNombre() {
+            var nombre = prompt("Escribe el nombre de la ventana:");
+
+            if (nombre != null && nombre != "") {
+                ventanaNueva = window.open("about:blank", nombre, "width=400,height=200");
+
+                if (ventanaNueva != null) {
+                    ventanaNueva.document.title = nombre;
+                    ventanaNueva.document.body.innerHTML = "<h1>Ventana nueva</h1><p>Nombre: " + nombre + "</p>";
+                } else {
+                    alert("No se ha podido abrir la ventana. Permite las ventanas emergentes en Chrome.");
+                }
+            }
+        }
+
+
+        function cerrarEstaVentana() {
+            window.close();
+
+            if (!window.closed) {
+                alert("El navegador no permite cerrar esta pestaña porque no se ha abierto mediante JavaScript. Abre el ejercicio desde una ventana creada con window.open().");
+            }
+        }
+
+        function cerrarVentanaNueva() {
+            if (ventanaNueva != null && ventanaNueva.closed == false) {
                 ventanaNueva.close();
             } else {
-                alert("No hay ninguna ventana nueva abierta.");
+                alert("No hay ninguna ventana abierta con el método open().");
             }
         }
 
-        function ejecutarF() {
-            ventanaNueva = window.open("", "_blank", "width=300,height=100,resizable=yes");
-        }
+        function abrirVentanaPequena() {
+            var nueva = window.open("", "ventanaPequena", "width=300,height=100,resizable=yes");
 
-        function ejecutarG() {
-            ventanaNueva = window.open("", "_blank", "width=300,height=100");
-            ventanaNueva.document.write("<p>Hola desde la ventana hija</p>");
-            
-            let p = document.createElement("p");
-            p.textContent = "Texto añadido al padre desde el script.";
-            document.body.appendChild(p);
-        }
-
-        function ejecutarH() {
-            if (ventanaNueva && !ventanaNueva.closed) {
-                ventanaNueva.moveBy(50, 50);
-                ventanaNueva.focus();
+            if (nueva) {
+                nueva.document.write("<p>Ventana de 300x100.</p>");
+                nueva.document.close();
             } else {
-                alert("Primero debes abrir una ventana nueva.");
+                alert("El navegador ha bloqueado la ventana emergente.");
             }
         }
 
-        function ejecutarI() {
-            if (ventanaNueva && !ventanaNueva.closed) {
-                ventanaNueva.moveTo(100, 100);
-                ventanaNueva.focus();
+        function abrirVentanaConTexto() {
+            var nueva = window.open("", "ventanaTexto", "width=300,height=100,resizable=yes");
+
+            if (nueva) {
+                nueva.document.write("<p>Esta es la ventana nueva.</p>");
+                nueva.document.close();
+
+                document.getElementById("textoPadre").innerHTML = "Se ha abierto una ventana nueva de 300x100.";
             } else {
-                alert("Primero debes abrir una ventana nueva.");
+                alert("El navegador ha bloqueado la ventana emergente.");
             }
         }
 
-        function ejecutarJ() {
+        function moverVentana() {
+            var nueva = window.open("", "ventanaMover", "width=300,height=200");
+
+            if (nueva) {
+                nueva.document.write("<p>Ventana movida 50 píxeles hacia abajo y hacia la derecha.</p>");
+                nueva.document.close();
+                nueva.moveBy(50, 50);
+            } else {
+                alert("El navegador ha bloqueado la ventana emergente.");
+            }
+        }
+
+        function situarVentana() {
+            var nueva = window.open("", "ventanaPosicion", "width=300,height=200,left=200,top=150");
+
+            if (nueva) {
+                nueva.document.write("<p>Posición inicial: izquierda 200, arriba 150.</p>");
+                nueva.document.close();
+                nueva.moveTo(200, 150);
+            } else {
+                alert("El navegador ha bloqueado la ventana emergente.");
+            }
+        }
+
+        function desplazarDiez() {
             window.scrollBy(0, 10);
         }
 
-        function ejecutarK() {
-            window.scrollTo(0, 500);
+        function desplazarPosicion() {
+            window.scrollTo(0, 300);
         }
     </script>
-
 </body>
 </html>

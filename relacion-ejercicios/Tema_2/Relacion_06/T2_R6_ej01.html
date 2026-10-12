@@ -2,34 +2,41 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejercicio 1</title>
+    <title>Ejercicio 1 - Navigator</title>
 </head>
 <body>
-    <h2>Información del navegador (Navigator)</h2>
-    <table border="1" id="tabla">
-        <tr>
-            <th>Propiedad</th>
-            <th>Valor</th>
-        </tr>
+    <h1>Información del navegador</h1>
+    <table border="1">
+        <tr><th>Propiedad</th><th>Valor</th></tr>
+        <tr><td>appCodeName</td><td id="appCodeName"></td></tr>
+        <tr><td>appName</td><td id="appName"></td></tr>
+        <tr><td>appVersion</td><td id="appVersion"></td></tr>
+        <tr><td>cookieEnabled</td><td id="cookieEnabled"></td></tr>
+        <tr><td>language</td><td id="language"></td></tr>
+        <tr><td>languages</td><td id="languages"></td></tr>
+        <tr><td>onLine</td><td id="onLine"></td></tr>
+        <tr><td>platform</td><td id="platform"></td></tr>
+        <tr><td>userAgent</td><td id="userAgent"></td></tr>
+        <tr><td>vendor</td><td id="vendor"></td></tr>
+        <tr><td>hardwareConcurrency</td><td id="hardwareConcurrency"></td></tr>
+        <tr><td>maxTouchPoints</td><td id="maxTouchPoints"></td></tr>
+        <tr><td>pdfViewerEnabled</td><td id="pdfViewerEnabled"></td></tr>
     </table>
-
+    <p><a href="index.html">Volver al menú</a></p>
     <script>
-        const tabla = document.getElementById("tabla");
-
-        // Añadimos algunas propiedades típicas de navigator
-        const propiedades = [
-            ["appName", navigator.appName],
-            ["appVersion", navigator.appVersion],
-            ["platform", navigator.platform],
-            ["userAgent", navigator.userAgent],
-            ["language", navigator.language]
-        ];
-
-        for (let i = 0; i < propiedades.length; i++) {
-            let fila = document.createElement("tr");
-            fila.innerHTML = "<td>" + propiedades[i][0] + "</td><td>" + propiedades[i][1] + "</td>";
-            tabla.appendChild(fila);
-        }
+        document.getElementById("appCodeName").innerHTML = navigator.appCodeName;
+        document.getElementById("appName").innerHTML = navigator.appName;
+        document.getElementById("appVersion").innerHTML = navigator.appVersion;
+        document.getElementById("cookieEnabled").innerHTML = navigator.cookieEnabled;
+        document.getElementById("language").innerHTML = navigator.language;
+        document.getElementById("languages").innerHTML = navigator.languages;
+        document.getElementById("onLine").innerHTML = navigator.onLine;
+        document.getElementById("platform").innerHTML = navigator.platform;
+        document.getElementById("userAgent").innerHTML = navigator.userAgent;
+        document.getElementById("vendor").innerHTML = navigator.vendor;
+        document.getElementById("hardwareConcurrency").innerHTML = navigator.hardwareConcurrency;
+        document.getElementById("maxTouchPoints").innerHTML = navigator.maxTouchPoints;
+        document.getElementById("pdfViewerEnabled").innerHTML = navigator.pdfViewerEnabled;
     </script>
 </body>
 </html>

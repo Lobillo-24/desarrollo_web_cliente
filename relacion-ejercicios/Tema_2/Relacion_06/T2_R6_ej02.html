@@ -2,33 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejercicio 2</title>
+    <title>Ejercicio 2 - Screen</title>
 </head>
 <body>
-    <h2>Información de la pantalla (Screen)</h2>
-    <table border="1" id="tabla">
-        <tr>
-            <th>Propiedad</th>
-            <th>Valor</th>
-        </tr>
+    <h1>Información de la pantalla</h1>
+    <table border="1">
+        <tr><th>Propiedad</th><th>Valor</th></tr>
+        <tr><td>width</td><td id="width"></td></tr>
+        <tr><td>height</td><td id="height"></td></tr>
+        <tr><td>availWidth</td><td id="availWidth"></td></tr>
+        <tr><td>availHeight</td><td id="availHeight"></td></tr>
+        <tr><td>colorDepth</td><td id="colorDepth"></td></tr>
+        <tr><td>pixelDepth</td><td id="pixelDepth"></td></tr>
+        <tr><td>orientation.type</td><td id="orientation"></td></tr>
     </table>
-
+    <p><a href="index.html">Volver al menú</a></p>
     <script>
-        const tabla = document.getElementById("tabla");
-
-        const propiedades = [
-            ["width", screen.width],
-            ["height", screen.height],
-            ["availWidth", screen.availWidth],
-            ["availHeight", screen.availHeight],
-            ["colorDepth", screen.colorDepth],
-            ["pixelDepth", screen.pixelDepth]
-        ];
-
-        for (let i = 0; i < propiedades.length; i++) {
-            let fila = document.createElement("tr");
-            fila.innerHTML = "<td>" + propiedades[i][0] + "</td><td>" + propiedades[i][1] + "</td>";
-            tabla.appendChild(fila);
+        document.getElementById("width").innerHTML = screen.width;
+        document.getElementById("height").innerHTML = screen.height;
+        document.getElementById("availWidth").innerHTML = screen.availWidth;
+        document.getElementById("availHeight").innerHTML = screen.availHeight;
+        document.getElementById("colorDepth").innerHTML = screen.colorDepth;
+        document.getElementById("pixelDepth").innerHTML = screen.pixelDepth;
+        if (screen.orientation) {
+            document.getElementById("orientation").innerHTML = screen.orientation.type;
+        } else {
+            document.getElementById("orientation").innerHTML = "No disponible";
         }
     </script>
 </body>
