@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+
+
+        let arNotas = [5,7,8,9,10,4,3,2,1];
+        const suspensos = arNotas.filter((v) => v < 5);
+        console.log("Suspensos: ", suspensos);
+
+        function filtraFlexible(ar,fFiltro){
+            let arFiltra = [];
+            for (let v of ar){
+                if (fFiltro(v)) arFiltra.push(v);
+            }
+            return arFiltra;
+
+        }
+
+        console.log("Aprobados: ", filtraFlexible(arNotas, (v) => v > 4));
+
+
+
+        let arNombre = ["ANTONIO", "lucas","juan","PEPE"]
+        
+        function CuentaValores(array,fCondicion){
+            let cuenta = 0;
+            for (let valor of array){
+                if (fCondicion(valor)) cuenta++;
+            }
+            return cuenta;
+        }
+
+        console.log("Nombres en mayúscula: ", CuentaValores(arNombre, (valor) => valor === valor.toUpperCase()));
+
+
+
+
+
+    </script>
+</body>
+</html>
