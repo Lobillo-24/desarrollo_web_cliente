@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_R1_ej01</title>
+</head>
+<body>
+    
+<button type="submit" onclick="arDAtos()">Introducir datos</button>
+
+
+
+<script>
+
+const arDatos = (dato)=>[
+    {dato: input("Introduce el valor del primer dato: ")},
+    {dato: input("Introduce el valor del segundo dato: ")},
+    {dato: input("Introduce el valor del tercer dato: ")},
+    {dato: input("Introduce el valor del cuarto dato: ")}
+];
+
+const valormaximo = arDatos(Math.max(maximo => maximo.dato));
+arDatos();
+console.log("El valor máximo es: " + valormaximo);
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+<script>
+
+let arAlmunos = [
+    {codigo: 8, nombre: "Antonio", edad: 15},
+    {codigo: 7, nombre: "Lucas", edad: 17},
+    {codigo: 6, nombre: "Juan", edad: 18},
+    {codigo: 5, nombre: "Pepe", edad:19}
+];
+
+
+let alumnocodigo5 =  arAlmunos.find(alumno => alumno.codigo == 5);
+let Indiceconcodigo5 =  arAlmunos.findIndex(alumno => alumno.codigo == 5);
+let arrayordenado = arAlmunos.sort((a, b) => a.codigo - b.codigo);
+let mayorEdad = arAlmunos.filter(alumno => alumno.edad >= 18);
+
+console.log(arrayordenado);
+console.log(mayorEdad);
+console.log(alumnocodigo5);
+console.log("Indice con codigo 5: " + Indiceconcodigo5);
+
+
+
+
+
+
+</script>
+</body>
+</html>
