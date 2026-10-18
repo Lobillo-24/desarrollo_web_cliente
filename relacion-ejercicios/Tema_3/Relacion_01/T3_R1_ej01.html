@@ -1,32 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T3_R1_ej01</title>
+<meta charset="UTF-8">
+<title>T3_R1 - Ejercicio 1</title>
 </head>
 <body>
-    
-<button type="submit" onclick="arDAtos()">Introducir datos</button>
-
-
-
+<h1>Máximo de 4 valores</h1>
+<p id="resultado"></p>
 <script>
+function maximo(a, b, c, d) {
+  return Math.max(a, b, c, d);
+}
 
-const arDatos = (dato)=>[
-    {dato: input("Introduce el valor del primer dato: ")},
-    {dato: input("Introduce el valor del segundo dato: ")},
-    {dato: input("Introduce el valor del tercer dato: ")},
-    {dato: input("Introduce el valor del cuarto dato: ")}
-];
+let n1 = Number(prompt("Introduce el valor 1"));
+let n2 = Number(prompt("Introduce el valor 2"));
+let n3 = Number(prompt("Introduce el valor 3"));
+let n4 = Number(prompt("Introduce el valor 4"));
 
-const valormaximo = arDatos(Math.max(maximo => maximo.dato));
-arDatos();
-console.log("El valor máximo es: " + valormaximo);
-
-
-
-
+document.getElementById("resultado").textContent = "El máximo de " + n1 + ", " + n2 + ", " + n3 + " y " + n4 + " es " + maximo(n1, n2, n3, n4);
 </script>
 </body>
 </html>

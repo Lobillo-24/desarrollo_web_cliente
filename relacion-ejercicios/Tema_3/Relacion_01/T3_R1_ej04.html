@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>T3_R1 - Ejercicio 4</title>
+</head>
+<body>
+<h1>Volumen de una esfera</h1>
+<label>Radio: <input type="number" id="radio" min="0" step="any"></label>
+<button onclick="mostrar()">Calcular</button>
+<p id="resultado"></p>
+<script>
+function volumenEsfera(radio) {
+  return (4 / 3) * Math.PI * Math.pow(radio, 3);
+}
+
+function mostrar() {
+  let radio = parseFloat(document.getElementById("radio").value);
+  if (isNaN(radio) || radio < 0) {
+    document.getElementById("resultado").textContent = "Introduce un radio válido";
+    return;
+  }
+  document.getElementById("resultado").textContent = "El volumen de la esfera es " + volumenEsfera(radio).toFixed(2);
+}
+</script>
+</body>
+</html>

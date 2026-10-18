@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>T3_R1 - Ejercicio 6</title>
+</head>
+<body>
+<h1>Potencia recursiva</h1>
+<label>Base: <input type="number" id="base" step="any"></label>
+<label>Exponente: <input type="number" id="exponente" step="1"></label>
+<button onclick="mostrar()">Calcular</button>
+<p id="resultado"></p>
+<script>
+function potencia(base, exponente) {
+  if (exponente === 0) {
+    return 1;
+  }
+  if (exponente < 0) {
+    return 1 / potencia(base, -exponente);
+  }
+  return base * potencia(base, exponente - 1);
+}
+
+function mostrar() {
+  let base = parseFloat(document.getElementById("base").value);
+  let exponente = parseInt(document.getElementById("exponente").value);
+  if (isNaN(base) || isNaN(exponente)) {
+    document.getElementById("resultado").textContent = "Introduce una base y un exponente entero";
+    return;
+  }
+  document.getElementById("resultado").textContent = base + " elevado a " + exponente + " es " + potencia(base, exponente);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>T3_R1 - Ejercicio 3</title>
+</head>
+<body>
+<h1>Lanzamiento de un dado</h1>
+<button onclick="mostrar()">Lanzar dado</button>
+<button onclick="simular()">Simular 6000 tiradas</button>
+<p id="resultado"></p>
+<div id="simulacion"></div>
+<script>
+function lanzamiento() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+function mostrar() {
+  document.getElementById("resultado").textContent = "Ha salido un " + lanzamiento();
+}
+
+function simular() {
+  let ocurrencias = [0, 0, 0, 0, 0, 0, 0];
+  for (let i = 0; i < 6000; i++) {
+    ocurrencias[lanzamiento()]++;
+  }
+  let tabla = "<table border='1'><tr><th>Valor</th><th>Ocurrencias</th></tr>";
+  for (let valor = 1; valor <= 6; valor++) {
+    tabla += "<tr><td>" + valor + "</td><td>" + ocurrencias[valor] + "</td></tr>";
+  }
+  tabla += "</table>";
+  document.getElementById("simulacion").innerHTML = tabla;
+}
+</script>
+</body>
+</html>

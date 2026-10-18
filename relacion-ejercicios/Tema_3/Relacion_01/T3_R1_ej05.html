@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>T3_R1 - Ejercicio 5</title>
+</head>
+<body>
+<h1>Esfera y círculo</h1>
+<label>Radio: <input type="number" id="radio" min="0" step="any"></label>
+<button onclick="mostrarVolumen()">Volumen de la esfera</button>
+<button onclick="mostrarArea()">Área del círculo</button>
+<p id="resultado"></p>
+<script>
+function volumenEsfera(radio) {
+  return (4 / 3) * Math.PI * Math.pow(radio, 3);
+}
+
+function areaCirculo(radio) {
+  return Math.PI * Math.pow(radio, 2);
+}
+
+function leerRadio() {
+  let radio = parseFloat(document.getElementById("radio").value);
+  if (isNaN(radio) || radio < 0) {
+    document.getElementById("resultado").textContent = "Introduce un radio válido";
+    return null;
+  }
+  return radio;
+}
+
+function mostrarVolumen() {
+  let radio = leerRadio();
+  if (radio !== null) {
+    document.getElementById("resultado").textContent = "El volumen de la esfera es " + volumenEsfera(radio).toFixed(2);
+  }
+}
+
+function mostrarArea() {
+  let radio = leerRadio();
+  if (radio !== null) {
+    document.getElementById("resultado").textContent = "El área del círculo es " + areaCirculo(radio).toFixed(2);
+  }
+}
+</script>
+</body>
+</html>

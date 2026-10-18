@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>T3_R1 - Ejercicio 2</title>
+</head>
+<body>
+<h1>Lanzamiento de un dado</h1>
+<button onclick="mostrar()">Lanzar dado</button>
+<p id="resultado"></p>
+<script>
+function lanzamiento() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+function mostrar() {
+  document.getElementById("resultado").textContent = "Ha salido un " + lanzamiento();
+}
+</script>
+</body>
+</html>
