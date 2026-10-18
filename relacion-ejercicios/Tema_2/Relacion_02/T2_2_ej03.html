@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T2_2 - Ejercicio 3: Redirección a Google</title>
+</head>
+<body>
+  <h1>Te llevo a Google cuando llegue a 0</h1>
+  <div id="contador">60</div>
+  <p id="mensaje"></p>
+
+  <script>
+    // Ejercicio 3: el contador del ejercicio 1, pero al llegar a 0
+    // se carga la página de Google con el objeto location
+    let segundos = 60;
+    const contador = document.getElementById("contador");
+    const mensaje = document.getElementById("mensaje");
+
+    const intervalo = setInterval(function () {
+      segundos--;
+      contador.textContent = segundos;
+
+      if (segundos === 0) {
+        clearInterval(intervalo);
+        mensaje.textContent = "Redirigiendo a Google...";
+        window.location.href = "https://www.google.com";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

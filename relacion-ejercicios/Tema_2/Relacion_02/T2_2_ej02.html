@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T2_2 - Ejercicio 2: Reloj</title>
+</head>
+<body>
+  <h1>Reloj</h1>
+  <div id="reloj">00:00:00</div>
+
+  <script>
+    // Ejercicio 2: reloj con el objeto Date que se actualiza cada segundo
+
+    // Añade un 0 delante si el número tiene una sola cifra (5 -> "05")
+    function dosCifras(numero) {
+      return numero < 10 ? "0" + numero : String(numero);
+    }
+
+    function mostrarHora() {
+      const ahora = new Date();
+      const horas = dosCifras(ahora.getHours());
+      const minutos = dosCifras(ahora.getMinutes());
+      const segundos = dosCifras(ahora.getSeconds());
+
+      document.getElementById("reloj").textContent = horas + ":" + minutos + ":" + segundos;
+    }
+
+    // Mostramos la hora nada más cargar y luego la actualizamos cada segundo
+    mostrarHora();
+    setInterval(mostrarHora, 1000);
+  </script>
+</body>
+</html>

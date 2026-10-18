@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T2_2 - Ejercicio 1: Contador hacia atrás</title>
+</head>
+<body>
+  <h1>Contador hacia atrás de 60 segundos</h1>
+  <div id="contador">60</div>
+  <p id="mensaje"></p>
+
+  <script>
+    // Ejercicio 1: contador de 60 a 0 usando setInterval()
+    let segundos = 60;
+    const contador = document.getElementById("contador");
+    const mensaje = document.getElementById("mensaje");
+
+    const intervalo = setInterval(function () {
+      segundos--;
+      contador.textContent = segundos;
+
+      // Al llegar a 0 detenemos el intervalo
+      if (segundos === 0) {
+        clearInterval(intervalo);
+        mensaje.textContent = "¡Tiempo terminado!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
