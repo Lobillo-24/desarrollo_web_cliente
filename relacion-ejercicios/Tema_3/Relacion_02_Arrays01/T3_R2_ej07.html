@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ7</title></head>
+<body>
+<script>
+  // ---------- PASO 1: crear el array con 20 números aleatorios ----------
+  let numeros = [];
+
+  for (let i = 0; i < 20; i++) {
+    // Número entero aleatorio entre 0 y 100
+    numeros.push(Math.floor(Math.random() * 101));
+  }
+
+  // ---------- PASO 2: mostrar el array sin ordenar ----------
+  document.write("Sin ordenar: " + numeros + "<br>");
+
+  // ---------- PASO 3: eliminar duplicados ----------
+  let sinDuplicados = [];
+
+  for (let i = 0; i < numeros.length; i++) {
+    // Si el número NO está ya en el array nuevo, lo añadimos
+    if (!sinDuplicados.includes(numeros[i])) {
+      sinDuplicados.push(numeros[i]);
+    }
+  }
+
+  // ---------- PASO 4: ordenar (estilo burbuja) ----------
+  // Empezamos mirando la posición 0
+  let posicion = 0;
+
+  // Repetimos mientras no lleguemos al final del array
+  while (posicion < sinDuplicados.length - 1) {
+
+    if (sinDuplicados[posicion] > sinDuplicados[posicion + 1]) {
+      // Están mal colocados: los intercambiamos con una variable auxiliar
+      let auxiliar = sinDuplicados[posicion];
+      sinDuplicados[posicion] = sinDuplicados[posicion + 1];
+      sinDuplicados[posicion + 1] = auxiliar;
+
+      // Volvemos al principio para comprobar todo de nuevo
+      posicion = 0;
+    } else {
+      // Están bien colocados: pasamos a la siguiente posición
+      posicion = posicion + 1;
+    }
+  }
+
+  // ---------- PASO 5: mostrar el resultado ----------
+  document.write("Ordenados y sin duplicados: " + sinDuplicados);
+</script>
+</body>
+</html>

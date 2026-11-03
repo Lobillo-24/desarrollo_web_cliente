@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ04</title></head>
+<body>
+<button onclick="preguntar()">Elegir alumno</button>
+<p id="resultado"></p>
+
+<script>
+  // Array "clase": cada elemento es un texto con: nombre, edad, nota 1T, nota 2T, nota 3T
+  let clase = [];
+  clase[0] = "Angel Garcia, 20, 6, 7, 10";
+  clase[1] = "Maria Lopez, 22, 5, 8, 9";
+  clase[2] = "Juan Perez, 19, 7, 4, 6";
+  clase[3] = "Lucia Ruiz, 21, 9, 9, 10";
+
+  // Función que devuelve el nombre de un alumno al azar
+  function alumnoAlAzar() {
+    // Posición aleatoria entre 0 y el último alumno
+    let posicion = Math.floor(Math.random() * clase.length);
+
+    // Separamos los datos y devolvemos solo el nombre (posición 0)
+    let datos = clase[posicion].split(",");
+    return datos[0];
+  }
+
+  // Cada vez que se pulsa el botón sale un alumno distinto (al azar)
+  function preguntar() {
+    document.getElementById("resultado").innerHTML = "Le toca a: " + alumnoAlAzar();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ01</title></head>
+<body>
+<script>
+  // Array "clase": cada elemento es un texto con: nombre, edad, nota 1T, nota 2T, nota 3T
+  let clase = [];
+  clase[0] = "Angel Garcia, 20, 6, 7, 10";
+  clase[1] = "Maria Lopez, 22, 5, 8, 9";
+  clase[2] = "Juan Perez, 19, 7, 4, 6";
+  clase[3] = "Lucia Ruiz, 21, 9, 9, 10";
+
+  // Mostramos el contenido del array
+  document.write("<h3>Alumnos de la clase</h3>");
+  for (let i = 0; i < clase.length; i++) {
+    document.write("clase[" + i + "] = " + clase[i] + "<br>");
+  }
+</script>
+</body>
+</html>

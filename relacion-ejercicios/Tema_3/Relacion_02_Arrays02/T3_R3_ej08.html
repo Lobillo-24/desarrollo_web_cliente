@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ08</title></head>
+<body>
+<script>
+  // Array de 13 posiciones (0 a 12). Usaremos de la 2 a la 12.
+  // La posición indica la suma y el valor las veces que ha salido.
+  let frecuencias = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  // Simulamos 36000 lanzamientos de dos dados
+  for (let i = 0; i < 36000; i++) {
+    let dado1 = Math.floor(Math.random() * 6) + 1;
+    let dado2 = Math.floor(Math.random() * 6) + 1;
+    let suma = dado1 + dado2;
+
+    // Sumamos 1 a la posición de esa suma
+    frecuencias[suma] = frecuencias[suma] + 1;
+  }
+
+  // Mostramos cuántas veces ha salido cada suma
+  for (let i = 2; i <= 12; i++) {
+    document.write("Suma " + i + ": " + frecuencias[i] + " veces<br>");
+  }
+</script>
+</body>
+</html>

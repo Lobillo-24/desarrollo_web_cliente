@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ10</title></head>
+<body>
+<h3>Reservas de vuelo</h3>
+<button onclick="reservar()">Reservar asiento</button>
+<p id="estado"></p>
+
+<script>
+  // Array de 10 asientos. Posición 0 = asiento 1, ..., posición 9 = asiento 10.
+  // Si está vacío ("") el asiento está libre; si no, guarda el nombre del pasajero.
+  let asientos = ["", "", "", "", "", "", "", "", "", ""];
+
+  function reservar() {
+    // 1. Pedimos el tipo de asiento
+    let tipo = prompt("Tipo de asiento: escribe First o Turista");
+    if (tipo == null) {
+      return; // ha cancelado
+    }
+    tipo = tipo.toLowerCase();
+
+    // 2. Según el tipo, decidimos entre qué posiciones buscar
+    let inicio;
+    let fin;
+    let clase;
+    if (tipo == "first") {
+      inicio = 0; // asientos 1 al 5
+      fin = 4;
+      clase = "First";
+    } else if (tipo == "turista") {
+      inicio = 5; // asientos 6 al 10
+      fin = 9;
+      clase = "Turista";
+    } else {
+      alert("Tipo no válido");
+      return;
+    }
+
+    // 3. Buscamos el primer asiento libre de esa clase
+    let libre = -1;
+    for (let i = inicio; i <= fin; i++) {
+      if (asientos[i] == "" && libre == -1) {
+        libre = i;
+      }
+    }
+
+    // Si no hemos encontrado ninguno, avisamos
+    if (libre == -1) {
+      alert("No quedan asientos libres en " + clase);
+      return;
+    }
+
+    // 4. Pedimos el nombre y guardamos la reserva
+    let nombre = prompt("Nombre del pasajero");
+    asientos[libre] = nombre;
+
+    // 5. Tarjeta de embarque en una nueva ventana
+    let ventana = window.open("", "", "width=400,height=300");
+    ventana.document.write("<h2>Tarjeta de embarque</h2>");
+    ventana.document.write("Pasajero: " + nombre + "<br>");
+    ventana.document.write("Asiento: " + (libre + 1) + "<br>");
+    ventana.document.write("Clase: " + clase);
+
+    // 6. Mostramos el estado de todos los asientos
+    let texto = "";
+    for (let i = 0; i < asientos.length; i++) {
+      if (asientos[i] == "") {
+        texto = texto + "Asiento " + (i + 1) + ": libre<br>";
+      } else {
+        texto = texto + "Asiento " + (i + 1) + ": " + asientos[i] + "<br>";
+      }
+    }
+    document.getElementById("estado").innerHTML = texto;
+  }
+</script>
+</body>
+</html>

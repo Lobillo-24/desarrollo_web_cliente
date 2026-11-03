@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ6</title></head>
+<body>
+  <p>Este es el primer párrafo de ejemplo con algo de texto.</p>
+  <p>Aquí tenemos un segundo párrafo para probar la búsqueda.</p>
+  <p>Y este es el tercer párrafo, el último de la página.</p>
+
+  <button onclick="buscar()">Buscar palabra</button>
+
+  <script>
+    function buscar() {
+      // Pedimos la palabra
+      let palabra = prompt("¿Qué palabra quieres buscar?");
+
+      // Cogemos todo el texto de la página
+      let texto = document.body.innerText;
+
+      // Pasamos todo a minúsculas para que no importe mayúsculas/minúsculas
+      if (texto.toLowerCase().includes(palabra.toLowerCase())) {
+        alert("La palabra SÍ existe en el documento");
+      } else {
+        alert("La palabra NO existe en el documento");
+      }
+    }
+  </script>
+</body>
+</html>

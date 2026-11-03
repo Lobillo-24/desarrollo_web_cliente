@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Geolocalización</title>
+  <!-- CSS de Leaflet (necesario para que el mapa se vea bien) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <h1>Mi ubicación</h1>
+
+  <!-- Aquí se dibuja el mapa (necesita una altura) -->
+  <div id="mapa" style="height: 400px;"></div>
+
+  <!-- JS de Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // Creamos el mapa en el div "mapa"
+    const mapa = L.map("mapa");
+
+    // Cargamos las imágenes del mapa de OpenStreetMap
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(mapa);
+
+    // Pedimos la ubicación al navegador
+    navigator.geolocation.getCurrentPosition(function (posicion) {
+      // Sacamos latitud y longitud
+      const lat = posicion.coords.latitude;
+      const lon = posicion.coords.longitude;
+
+      // Centramos el mapa en nuestra posición (15 = nivel de zoom)
+      mapa.setView([lat, lon], 15);
+
+      // Ponemos un marcador en nuestra posición
+      L.marker([lat, lon]).addTo(mapa).bindPopup("Estás aquí").openPopup();
+    });
+  </script>
+</body>
+</html>

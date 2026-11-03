@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ02</title></head>
+<body>
+<script>
+  // Array "clase": cada elemento es un texto con: nombre, edad, nota 1T, nota 2T, nota 3T
+  let clase = [];
+  clase[0] = "Angel Garcia, 20, 6, 7, 10";
+  clase[1] = "Maria Lopez, 22, 5, 8, 9";
+  clase[2] = "Juan Perez, 19, 7, 4, 6";
+  clase[3] = "Lucia Ruiz, 21, 9, 9, 10";
+
+  // Función que devuelve la nota de un alumno en un trimestre.
+  // Si NO se indica el trimestre, devuelve la nota media.
+  // (En JavaScript no existe la sobrecarga como tal, así que comprobamos si llega el trimestre)
+  function nota(numeroAlumno, trimestre) {
+    // Separamos el texto del alumno en un array de datos: [nombre, edad, n1, n2, n3]
+    let datos = clase[numeroAlumno].split(",");
+
+    // Convertimos las notas a número
+    let nota1 = Number(datos[2]);
+    let nota2 = Number(datos[3]);
+    let nota3 = Number(datos[4]);
+
+    if (trimestre == 1) {
+      return nota1;
+    } else if (trimestre == 2) {
+      return nota2;
+    } else if (trimestre == 3) {
+      return nota3;
+    } else {
+      // No han indicado trimestre: devolvemos la media
+      return (nota1 + nota2 + nota3) / 3;
+    }
+  }
+
+  // Pruebas
+  document.write("Nota del alumno 0 en el trimestre 2: " + nota(0, 2) + "<br>");
+  document.write("Nota media del alumno 0: " + nota(0) + "<br>");
+  document.write("Nota del alumno 2 en el trimestre 1: " + nota(2, 1) + "<br>");
+  document.write("Nota media del alumno 2: " + nota(2));
+</script>
+</body>
+</html>

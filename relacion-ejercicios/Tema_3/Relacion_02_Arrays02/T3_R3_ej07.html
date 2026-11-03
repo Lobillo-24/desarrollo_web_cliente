@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ07</title></head>
+<body>
+<script>
+  // Array de 10 elementos
+  let numeros = [5, 8, 2, 9, 1, 7, 3, 6, 4, 10];
+
+  // a) Poner los 10 elementos a cero
+  function ponerACero() {
+    for (let i = 0; i < numeros.length; i++) {
+      numeros[i] = 0;
+    }
+  }
+
+  // b) Sumar 1 a cada elemento
+  function sumarUno() {
+    for (let i = 0; i < numeros.length; i++) {
+      numeros[i] = numeros[i] + 1;
+    }
+  }
+
+  // c) Mostrar los valores separados por espacios
+  function mostrar() {
+    let texto = "";
+    for (let i = 0; i < numeros.length; i++) {
+      texto = texto + numeros[i] + " ";
+    }
+    document.write(texto + "<br>");
+  }
+
+  // Pruebas
+  document.write("Array inicial: ");
+  mostrar();
+
+  ponerACero();
+  document.write("Después de ponerlo a cero: ");
+  mostrar();
+
+  sumarUno();
+  document.write("Después de sumar 1: ");
+  mostrar();
+</script>
+</body>
+</html>

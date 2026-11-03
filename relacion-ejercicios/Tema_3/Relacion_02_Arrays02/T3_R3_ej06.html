@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ06</title></head>
+<body>
+<h3>Alta de vendedores</h3>
+Nombre: <input type="text" id="nombre"><br>
+Ventas de la semana: <input type="number" id="ventas"><br>
+<button onclick="darDeAlta()">Dar de alta</button>
+
+<h3>Vendedores</h3>
+<div id="lista"></div>
+
+<script>
+  // Array donde guardamos el texto de cada vendedor
+  let vendedores = [];
+
+  function darDeAlta() {
+    // Leemos los datos escritos en los campos
+    let nombre = document.getElementById("nombre").value;
+    let ventas = Number(document.getElementById("ventas").value);
+
+    // Sueldo: 200 fijos + el 9% de las ventas
+    let sueldo = 200 + ventas * 0.09;
+
+    // Guardamos al vendedor en el array
+    vendedores.push(nombre + " - Ventas: $" + ventas + " - Sueldo final: $" + sueldo);
+
+    // Mostramos todos los vendedores del array
+    let texto = "";
+    for (let i = 0; i < vendedores.length; i++) {
+      texto = texto + vendedores[i] + "<br>";
+    }
+    document.getElementById("lista").innerHTML = texto;
+  }
+</script>
+</body>
+</html>

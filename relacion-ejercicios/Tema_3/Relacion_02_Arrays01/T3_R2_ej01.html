@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ1</title></head>
+<body>
+<script>
+  // Array donde guardamos los números
+  let numeros = [];
+
+  // Pedimos 5 números y los guardamos
+  for (let i = 0; i < 5; i++) {
+    numeros.push(Number(prompt("Introduce el número " + (i + 1))));
+  }
+
+  // Mínimo y máximo
+  let minimo = Math.min(...numeros);
+  let maximo = Math.max(...numeros);
+
+  // Media: sumamos todo y dividimos entre la cantidad
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    suma = suma + numeros[i];
+  }
+  let media = suma / numeros.length;
+
+ console.log("Números: " + numeros);
+ console.log("Mínimo: " + minimo);
+ console.log("Máximo: " + maximo);
+ console.log("Media: " + media);
+</script>
+</body>
+</html>

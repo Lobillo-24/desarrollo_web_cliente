@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ9</title></head>
+<body>
+<script>
+  // Pedimos el texto
+  let texto = prompt("Introduce una cadena de texto");
+
+  // Separamos en palabras (cortando por los espacios)
+  let palabras = texto.trim().split(" ");
+
+  // Copias para no modificar el array original
+  let inverso = palabras.slice().reverse();
+  let az = palabras.slice().sort();
+  let za = palabras.slice().sort().reverse();
+
+  // Abrimos una nueva ventana y escribimos ahí la información
+  let ventana = window.open("", "", "width=500,height=400");
+
+  ventana.document.write("Número de palabras: " + palabras.length + "<br>");
+  ventana.document.write("Primera palabra: " + palabras[0] + "<br>");
+  ventana.document.write("Última palabra: " + palabras[palabras.length - 1] + "<br>");
+  ventana.document.write("Orden inverso: " + inverso.join(" ") + "<br>");
+  ventana.document.write("De la A a la Z: " + az.join(" ") + "<br>");
+  ventana.document.write("De la Z a la A: " + za.join(" "));
+</script>
+</body>
+</html>

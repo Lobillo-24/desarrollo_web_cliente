@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ3</title></head>
+<body>
+<script>
+  // Array vacío
+  let numeros = [];
+
+  // N lo introduce el usuario (cuántos números generar)
+  let n = Number(prompt("¿Cuántos números aleatorios quieres generar?"));
+
+  // Generamos N números aleatorios entre 0 y 100 y los guardamos
+  for (let i = 0; i < n; i++) {
+    numeros.push(Math.floor(Math.random() * 101));
+  }
+
+  document.write("Números generados: " + numeros);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ8</title></head>
+<body>
+<script>
+  // El usuario escribe los nombres separados por comas
+  let texto = prompt("Introduce nombres separados por comas");
+
+  // split convierte el texto en un array cortando por cada coma
+  let nombres = texto.split(",");
+
+  // Quitamos espacios sobrantes de cada nombre
+  for (let i = 0; i < nombres.length; i++) {
+    nombres[i] = nombres[i].trim();
+  }
+
+  // Ordenamos alfabéticamente
+  nombres.sort();
+
+  document.write("Nombres ordenados: " + nombres);
+</script>
+</body>
+</html>

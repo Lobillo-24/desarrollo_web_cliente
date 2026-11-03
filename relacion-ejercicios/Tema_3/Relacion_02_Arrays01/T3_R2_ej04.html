@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ4</title></head>
+<body>
+<script>
+  let a = ["casa", "perro", "gato", "mesa", "silla"];
+  let b = ["perro", "coche", "mesa", "libro", "lapiz"];
+
+  // Intersección: los que están en A y también en B
+  let interseccion = a.filter(function (palabra) {
+    return b.includes(palabra);
+  });
+
+  // Unión: todos los de A y los de B que no estén ya en A
+  let union = a.slice();
+  for (let i = 0; i < b.length; i++) {
+    if (!union.includes(b[i])) {
+      union.push(b[i]);
+    }
+  }
+
+  // Diferencia: los que están en A pero no en B
+  let diferencia = a.filter(function (palabra) {
+    return !b.includes(palabra);
+  });
+
+  document.write("Array A: " + a + "<br>");
+  document.write("Array B: " + b + "<br><br>");
+  document.write("Intersección: " + interseccion + "<br>");
+  document.write("Unión: " + union + "<br>");
+  document.write("Diferencia (A - B): " + diferencia);
+</script>
+</body>
+</html>

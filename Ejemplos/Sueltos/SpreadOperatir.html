@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<body>
+
+
+
+
+
+<script>
+
+    let arModulos = ["DWE","DWS","Interfaces","IPE"];
+
+    let [dwe, dws, ...arModulos2] = arModulos;
+    console.log(arModulos2);
+
+
+    let arProfe = ["Segio","Gerardo","Gustavo"];
+    let arJunto = [...arModulos, ...arProfe]
+    console.log(arJunto);
+
+    let objModulo = {codigo:0, nombre:"DWC", profesor:"Sergio"};
+    let {nombre, profesor} = objModulo;
+    console.log(nombre, profesor);
+
+    let objNuevo = {...objModulo, aula:"2DAW"};
+    console.log(objNuevo);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ05</title></head>
+<body>
+<script>
+  function paresImpares() {
+    // 1. Creamos el array con 100 números aleatorios del 1 al 1000
+    let numeros = [];
+    for (let i = 0; i < 100; i++) {
+      numeros.push(Math.floor(Math.random() * 1000) + 1);
+    }
+
+    // 2. Mostramos el array original
+    document.write("<h3>Array original</h3>");
+    document.write(numeros.join(" ") + "<br>");
+
+    // 3. Separamos los pares y los impares en dos arrays
+    let pares = [];
+    let impares = [];
+    for (let i = 0; i < numeros.length; i++) {
+      if (numeros[i] % 2 == 0) {
+        pares.push(numeros[i]);
+      } else {
+        impares.push(numeros[i]);
+      }
+    }
+
+    // 4. Juntamos: primero los pares y luego los impares
+    let organizado = pares.concat(impares);
+
+    // 5. Mostramos el array organizado
+    document.write("<h3>Array con pares e impares juntos</h3>");
+    document.write(organizado.join(" "));
+  }
+
+  // Llamamos a la función
+  paresImpares();
+</script>
+</body>
+</html>

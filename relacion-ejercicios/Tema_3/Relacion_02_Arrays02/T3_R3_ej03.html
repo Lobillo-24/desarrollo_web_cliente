@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ03</title></head>
+<body>
+<script>
+  // Array "clase": cada elemento es un texto con: nombre, edad, nota 1T, nota 2T, nota 3T
+  let clase = [];
+  clase[0] = "Angel Garcia, 20, 6, 7, 10";
+  clase[1] = "Maria Lopez, 22, 5, 8, 9";
+  clase[2] = "Juan Perez, 19, 7, 4, 6";
+  clase[3] = "Lucia Ruiz, 21, 9, 9, 10";
+
+  // Función que devuelve la edad media de los alumnos
+  function edadMedia() {
+    let suma = 0;
+
+    for (let i = 0; i < clase.length; i++) {
+      // Separamos los datos del alumno y cogemos la edad (posición 1)
+      let datos = clase[i].split(",");
+      suma = suma + Number(datos[1]);
+    }
+
+    return suma / clase.length;
+  }
+
+  document.write("Edad media de la clase: " + edadMedia());
+</script>
+</body>
+</html>

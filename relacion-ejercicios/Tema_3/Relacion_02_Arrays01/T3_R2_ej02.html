@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ2</title></head>
+<body>
+<script>
+  let colores = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+
+  // Pedimos el color al usuario
+  let color = prompt("Introduce un color");
+
+  // includes devuelve true si el elemento está en el array
+  if (colores.includes(color)) {
+    document.write("El color " + color + " SÍ está en el array");
+  } else {
+    document.write("El color " + color + " NO está en el array");
+  }
+</script>
+</body>
+</html>

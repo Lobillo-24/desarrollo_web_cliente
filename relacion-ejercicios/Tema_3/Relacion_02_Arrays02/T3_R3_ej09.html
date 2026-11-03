@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ09</title></head>
+<body>
+<script>
+  // Array de frecuencias de la suma (igual que el ejercicio anterior)
+  let frecuencias = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  // Array bidimensional 6x6: filas = dado 1, columnas = dado 2
+  // Cada posición cuenta cuántas veces ha salido esa combinación
+  let combinaciones = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+  ];
+
+  // Simulamos 36000 lanzamientos
+  for (let i = 0; i < 36000; i++) {
+    let dado1 = Math.floor(Math.random() * 6) + 1;
+    let dado2 = Math.floor(Math.random() * 6) + 1;
+
+    // Contamos la suma
+    frecuencias[dado1 + dado2] = frecuencias[dado1 + dado2] + 1;
+
+    // Contamos la combinación (restamos 1 porque los arrays empiezan en 0)
+    combinaciones[dado1 - 1][dado2 - 1] = combinaciones[dado1 - 1][dado2 - 1] + 1;
+  }
+
+  // Mostramos las sumas
+  document.write("<h3>Veces que sale cada suma</h3>");
+  for (let i = 2; i <= 12; i++) {
+    document.write("Suma " + i + ": " + frecuencias[i] + " veces<br>");
+  }
+
+  // Mostramos la tabla de combinaciones
+  document.write("<h3>Combinaciones (filas: dado 1, columnas: dado 2)</h3>");
+  let tabla = "<table border='1'>";
+  tabla = tabla + "<tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>";
+
+  // Una fila por cada valor del primer dado
+  for (let i = 0; i < 6; i++) {
+    tabla = tabla + "<tr>";
+    tabla = tabla + "<th>" + (i + 1) + "</th>";
+    tabla = tabla + "<td>" + combinaciones[i][0] + "</td>";
+    tabla = tabla + "<td>" + combinaciones[i][1] + "</td>";
+    tabla = tabla + "<td>" + combinaciones[i][2] + "</td>";
+    tabla = tabla + "<td>" + combinaciones[i][3] + "</td>";
+    tabla = tabla + "<td>" + combinaciones[i][4] + "</td>";
+    tabla = tabla + "<td>" + combinaciones[i][5] + "</td>";
+    tabla = tabla + "</tr>";
+  }
+
+  tabla = tabla + "</table>";
+  document.write(tabla);
+</script>
+</body>
+</html>

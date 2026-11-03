@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ11</title></head>
+<body>
+<script>
+  // Estadillos del mes: cada hoja es [vendedor (1-4), producto (1-5), valor vendido]
+  let hojas = [
+    [1, 1, 100],
+    [1, 3, 250],
+    [2, 2, 300],
+    [2, 5, 120],
+    [3, 1, 80],
+    [3, 4, 400],
+    [4, 3, 150],
+    [4, 5, 200],
+    [1, 1, 50],
+    [2, 4, 175],
+    [3, 2, 90],
+    [4, 1, 60]
+  ];
+
+  // Matriz de ventas: 5 filas (productos) x 4 columnas (vendedores)
+  let ventas = [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+  ];
+
+  // Totales acumulados
+  let totalVendedor = [0, 0, 0, 0];     // una posición por vendedor
+  let totalProducto = [0, 0, 0, 0, 0];  // una posición por producto
+
+  // Recorremos todas las hojas y vamos sumando
+  for (let i = 0; i < hojas.length; i++) {
+    let vendedor = hojas[i][0] - 1; // restamos 1 porque los arrays empiezan en 0
+    let producto = hojas[i][1] - 1;
+    let valor = hojas[i][2];
+
+    ventas[producto][vendedor] = ventas[producto][vendedor] + valor;
+    totalVendedor[vendedor] = totalVendedor[vendedor] + valor;
+    totalProducto[producto] = totalProducto[producto] + valor;
+  }
+
+  // Construimos la tabla: columnas = vendedores, filas = productos
+  let tabla = "<table border='1'>";
+  tabla = tabla + "<tr><th></th><th>Vendedor 1</th><th>Vendedor 2</th><th>Vendedor 3</th><th>Vendedor 4</th><th>Total producto</th></tr>";
+
+  // Una fila por cada producto
+  for (let i = 0; i < 5; i++) {
+    tabla = tabla + "<tr>";
+    tabla = tabla + "<th>Producto " + (i + 1) + "</th>";
+    tabla = tabla + "<td>" + ventas[i][0] + "</td>";
+    tabla = tabla + "<td>" + ventas[i][1] + "</td>";
+    tabla = tabla + "<td>" + ventas[i][2] + "</td>";
+    tabla = tabla + "<td>" + ventas[i][3] + "</td>";
+    tabla = tabla + "<td>" + totalProducto[i] + "</td>";
+    tabla = tabla + "</tr>";
+  }
+
+  // Última fila: ventas acumuladas por vendedor
+  tabla = tabla + "<tr>";
+  tabla = tabla + "<th>Total vendedor</th>";
+  tabla = tabla + "<td>" + totalVendedor[0] + "</td>";
+  tabla = tabla + "<td>" + totalVendedor[1] + "</td>";
+  tabla = tabla + "<td>" + totalVendedor[2] + "</td>";
+  tabla = tabla + "<td>" + totalVendedor[3] + "</td>";
+  tabla = tabla + "<td></td>";
+  tabla = tabla + "</tr>";
+
+  tabla = tabla + "</table>";
+  document.write(tabla);
+</script>
+</body>
+</html>

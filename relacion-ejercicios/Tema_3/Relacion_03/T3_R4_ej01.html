@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Ejemplo de uso de modAuxiliar.js</title></head>
+<body>
+  <h1>Ejemplo de uso de modAuxiliar.js</h1>
+
+  <!-- Aquí escribiremos los resultados -->
+  <div id="resultado"></div>
+
+  <!-- type="module" es necesario para poder usar import -->
+  <script type="module">
+    // Importamos las funciones que queremos usar del módulo
+    import {
+      filterNumbersGreaterThan,
+      toHackerSpeak,
+      getFileExtension,
+      flatArray,
+      removeDuplicates,
+      countLetter,
+      removeWords
+    } from "./modAuxiliar.js";
+
+    // Vamos guardando en "texto" lo que queremos mostrar
+    let texto = "";
+
+    texto += "<h3>filterNumbersGreaterThan([3, 8, 12, 1, 7, 4], 7)</h3>";
+    texto += filterNumbersGreaterThan([3, 8, 12, 1, 7, 4], 7) + "<br>";
+
+    texto += "<h3>toHackerSpeak(\"I'm a hacker now\")</h3>";
+    texto += toHackerSpeak("I'm a hacker now") + "<br>";
+
+    texto += "<h3>getFileExtension(\"imagen.jpg\")</h3>";
+    texto += getFileExtension("imagen.jpg") + "<br>";
+
+    texto += "<h3>flatArray([[1, 5, 4], [3, 10], [2, 5]])</h3>";
+    texto += flatArray([[1, 5, 4], [3, 10], [2, 5]]) + "<br>";
+
+    texto += "<h3>removeDuplicates([4, 5, 10, 4, 10, 2])</h3>";
+    texto += removeDuplicates([4, 5, 10, 4, 10, 2]) + "<br>";
+
+    texto += "<h3>countLetter(\"a\", \"javascript\")</h3>";
+    texto += countLetter("a", "javascript") + "<br>";
+
+    texto += "<h3>removeWords(\"This is a really bad test\", [\"really\", \"bad\"])</h3>";
+    texto += removeWords("This is a really bad test", ["really", "bad"]) + "<br>";
+
+    // Mostramos todo en la página
+    document.getElementById("resultado").innerHTML = texto;
+  </script>
+</body>
+</html>

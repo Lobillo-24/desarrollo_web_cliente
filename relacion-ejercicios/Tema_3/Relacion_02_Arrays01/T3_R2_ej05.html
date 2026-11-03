@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>EJ5</title></head>
+<body>
+<script>
+  let numeros = [];
+
+  // Math.random() da un decimal entre 0 y 1.
+  // Lo multiplicamos por 101 y quitamos decimales con Math.floor para tener un entero de 0 a 100
+  for (let i = 0; i < 20; i++) {
+    numeros.push(Math.floor(Math.random() * 101));
+  }
+
+  let minimo = Math.min(...numeros);
+  let maximo = Math.max(...numeros);
+
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    suma = suma + numeros[i];
+  }
+  let media = suma / numeros.length;
+
+  document.write("Array: " + numeros + "<br>");
+  document.write("Mínimo: " + minimo + "<br>");
+  document.write("Máximo: " + maximo + "<br>");
+  document.write("Media: " + media);
+</script>
+</body>
+</html>
