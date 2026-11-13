@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <style>
+      #tablero {
+        font-family: monospace;
+        font-size: 24px;
+      }
+    </style>
+</head>
+<body>
+<h1>Ejercicio 1 - Puzzle</h1>
+
+<div>
+    <label for="dimension">Dimensión:</label>
+    <input type="number" id="dimension" value="3" min="2" max="6">
+    <button id="btnNueva">Nueva partida</button>
+</div>
+
+<pre id="tablero"></pre>
+
+<div>
+    <button id="btnArriba">Arriba</button>
+    <button id="btnAbajo">Abajo</button>
+    <button id="btnIzquierda">Izquierda</button>
+    <button id="btnDerecha">Derecha</button>
+</div>
+
+<p id="info"></p>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
