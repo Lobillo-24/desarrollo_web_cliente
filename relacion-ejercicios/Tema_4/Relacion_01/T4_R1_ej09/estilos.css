@@ -1,0 +1,17 @@
+/* Estilos ejercicio 9 - Arrastrar una imagen */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+}
+
+#imagen {
+
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    cursor: grab;
+
+}

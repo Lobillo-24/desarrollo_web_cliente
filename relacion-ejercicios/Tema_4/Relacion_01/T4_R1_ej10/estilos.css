@@ -1,0 +1,34 @@
+/* Estilos ejercicio 10 - Arrastrar varias imágenes */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+}
+
+.arrastrable {
+
+    position: absolute;
+    top: 80px;
+    cursor: grab;
+
+}
+
+#imagen1 {
+
+    left: 50px;
+
+}
+
+#imagen2 {
+
+    left: 200px;
+
+}
+
+#imagen3 {
+
+    left: 350px;
+
+}

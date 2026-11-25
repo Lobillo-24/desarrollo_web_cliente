@@ -1,0 +1,30 @@
+/* Estilos ejercicio 5 - Canvas para dibujar y borrar con el ratón */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+table {
+
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    user-select: none; /* Para que no se seleccione nada al pulsar Shift */
+
+}
+
+td {
+
+    width: 4px;
+    height: 4px;
+    padding: 0;
+
+}
+
+button {
+
+    margin-bottom: 10px;
+    padding: 5px 10px;
+
+}

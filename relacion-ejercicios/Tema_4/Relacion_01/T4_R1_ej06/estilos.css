@@ -1,0 +1,22 @@
+/* Estilos ejercicio 6 - Tabla de colores en hexadecimal */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+table {
+
+    border-collapse: collapse;
+
+}
+
+td {
+
+    width: 150px;
+    padding: 8px;
+    border: 1px solid #000000;
+    text-align: center;
+
+}
