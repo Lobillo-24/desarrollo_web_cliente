@@ -123,6 +123,45 @@
             font-size: 0.9rem;
             text-align: center;
         }
+        /* Pestañas para cambiar de tema */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .tab:hover {
+            border-color: #8b949e;
+        }
+
+        .tab.activa {
+            background-color: var(--accent);
+            border-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        /* Solo se ve el tema de la pestaña activa */
+        .card {
+            display: none;
+        }
+
+        .card.activa {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -132,8 +171,18 @@
         <p>Índice general de prácticas, relaciones de ejercicios y ejemplos</p>
     </header>
 
+    <!-- Pestañas para cambiar de tema -->
+    <nav class="tabs">
+        <button class="tab" data-tema="ejemplos">Ejemplos</button>
+        <button class="tab" data-tema="tema1">Tema 1</button>
+        <button class="tab" data-tema="tema2">Tema 2</button>
+        <button class="tab" data-tema="tema3">Tema 3</button>
+        <button class="tab" data-tema="tema4">Tema 4</button>
+        <button class="tab" data-tema="tema5">Tema 5</button>
+    </nav>
+
     <!-- Ejemplos de Clase -->
-    <div class="card">
+    <div class="card" id="ejemplos">
         <h2>Ejemplos de Clase</h2>
         <div class="relation-group">
             <h3>Sueltos</h3>
@@ -164,7 +213,7 @@
     </div>
 
     <!-- Tema 1 -->
-    <div class="card">
+    <div class="card" id="tema1">
         <h2>Tema 1</h2>
         
         <!-- UD-1 / Relación 1 -->
@@ -229,7 +278,7 @@
     </div>
 
     <!-- Tema 2 -->
-    <div class="card">
+    <div class="card" id="tema2">
         <h2>Tema 2</h2>
         
         <!-- Relación 1 -->
@@ -346,7 +395,7 @@
     </div>
 
     <!-- Tema 3 -->
-    <div class="card">
+    <div class="card" id="tema3">
         <h2>Tema 3</h2>
 
         <!-- Relación 1 (Funciones) -->
@@ -479,7 +528,7 @@
     </div>
 
     <!-- Tema 4 -->
-    <div class="card">
+    <div class="card" id="tema4">
         <h2>Tema 4</h2>
 
         <!-- Relación 1 (Eventos) -->
@@ -502,7 +551,7 @@
     </div>
 
     <!-- Tema 5 -->
-    <div class="card">
+    <div class="card" id="tema5">
         <h2>Tema 5</h2>
 
         <!-- Relación 1 (DOM) -->
@@ -518,6 +567,31 @@
     <footer>
         <p>2º DAW • Repositorio de JavaScript</p>
     </footer>
+
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const cards = document.querySelectorAll(".card");
+
+        // Muestra solo el tema que se le pasa y marca su pestaña
+        const mostrarTema = (id) => {
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].classList.remove("activa");
+            }
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("activa");
+            }
+
+            document.getElementById(id).classList.add("activa");
+            document.querySelector(`.tab[data-tema="${id}"]`).classList.add("activa");
+        };
+
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener("click", () => mostrarTema(tabs[i].dataset.tema));
+        }
+
+        // Al entrar se ve el último tema (el más reciente)
+        mostrarTema(tabs[tabs.length - 1].dataset.tema);
+    </script>
 
 </body>
 </html>
